@@ -1,0 +1,1215 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/lixifun-logo.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-lixifun.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-lixifun.png">
+  <link rel="mask-icon" href="/images/lixifun-logo.png" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"lixi.fun","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="做个有趣的人 | FUN | 自强 笃实 求源 创新">
+<meta property="og:type" content="website">
+<meta property="og:title" content="LIXI.FUN">
+<meta property="og:url" content="https://lixi.fun/index.html">
+<meta property="og:site_name" content="LIXI.FUN">
+<meta property="og:description" content="做个有趣的人 | FUN | 自强 笃实 求源 创新">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="lixifun">
+<meta property="article:tag" content="lixifun">
+<meta property="article:tag" content="lixi">
+<meta property="article:tag" content="fun">
+<meta property="article:tag" content="lixi.fun">
+<meta property="article:tag" content="LIXI.FUN">
+<meta property="article:tag" content="自强">
+<meta property="article:tag" content="笃实">
+<meta property="article:tag" content="求源">
+<meta property="article:tag" content="创新">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://lixi.fun/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : true,
+    isPost : false,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>LIXI.FUN</title>
+  
+    <script>
+      function sendPageView() {
+        if (CONFIG.hostname !== location.hostname) return;
+        var uid = localStorage.getItem('uid') || (Math.random() + '.' + Math.random());
+        localStorage.setItem('uid', uid);
+        navigator.sendBeacon('https://www.google-analytics.com/collect', new URLSearchParams({
+          v  : 1,
+          tid: 'UA-116924234-1',
+          cid: uid,
+          t  : 'pageview',
+          dp : encodeURIComponent(location.pathname)
+        }));
+      }
+      document.addEventListener('pjax:complete', sendPageView);
+      sendPageView();
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">LIXI.FUN</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">做个有趣的人</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+  <a href="https://github.com/lixifun" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content index posts-expand">
+            
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://lixi.fun/2021/04/15/%E5%AF%B9ioc%E7%9A%84%E7%90%86%E8%A7%A3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/lixifun-logo.png">
+      <meta itemprop="name" content="lixifun">
+      <meta itemprop="description" content="做个有趣的人 | FUN | 自强 笃实 求源 创新">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LIXI.FUN">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/04/15/%E5%AF%B9ioc%E7%9A%84%E7%90%86%E8%A7%A3/" class="post-title-link" itemprop="url">对ioc的理解</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-04-15 18:11:19 / 修改时间：18:12:48" itemprop="dateCreated datePublished" datetime="2021-04-15T18:11:19+08:00">2021-04-15</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>IOC 和 DI 先认为是一回事儿，以理解其中的思想为主。</p>
+<p>IOC 的目的是为了解耦，具体是怎么解耦的，下面说。</p>
+<p>IOC 具体实现可以总结为两点：</p>
+<ol>
+<li>类的成员变量用接口类型(父类)声明</li>
+<li>类实例交给第三方管理</li>
+</ol>
+<h2 id="1-类的成员变量用接口类型-父类-声明"><a href="#1-类的成员变量用接口类型-父类-声明" class="headerlink" title="1. 类的成员变量用接口类型(父类)声明"></a>1. 类的成员变量用接口类型(父类)声明</h2><blockquote>
+<p>《Effective Java》 第 5 条：优先考虑依赖注入来引用资源</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SpellChecker</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 首先用 Lexicon 这是个接口或者父类</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> Lexicon dict;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 其次有构造器来 注入 一个实例</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">SpellChecker</span><span class="params">(Lexicon dict)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.dict = dict;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isValid</span><span class="params">(String word)</span> </span>&#123;...&#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;String&gt; <span class="title">suggestions</span><span class="params">(String type)</span> </span>&#123;...&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>直接看上面的代码，可能会想，平时写的代码不就是这个样子吗？这有啥，跟依赖注入有啥关系？</p>
+<p>这就是依赖注入。很多人已经使用多年，只是不知道它的名字而已。</p>
+<p>没有对比就没有伤害，看下下面的代码，就能理解了</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SpellChecker</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> Lexicon dict = <span class="keyword">new</span> EnglishLexicon();</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">SpellChecker</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isValid</span><span class="params">(String word)</span> </span>&#123;...&#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;String&gt; <span class="title">suggestions</span><span class="params">(String type)</span> </span>&#123;...&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>现在没有人会写这种代码了，大家已经习惯了上面的。</p>
+<p>对比下面的代码，依赖注入的例子里，<code>SpellChecker</code> 只需要认识 <code>Lexicon</code> 这个接口，而不需要认识像 <code>EnglishLexicon</code> 或者 <code>ChineseLexicon</code> 这些具体实现类，就实现了 <code>SpellChecker</code> 与实现类的解耦，可复用性也更强，当换实现的时候，只需要在构造方法里，填充不同的实现类的实例即可。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// SpellChecker englishSpellChecker = new SpellChecker(new EnglishLexicon());</span></span><br><span class="line">        <span class="comment">// 这里理解为更换国家，需要新的实现类，暂不理解为多个实现类共存</span></span><br><span class="line">        SpellChecker chineseSpellChecker = <span class="keyword">new</span> SpellChecker(<span class="keyword">new</span> ChineseLexicon());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-类实例交给第三方管理"><a href="#2-类实例交给第三方管理" class="headerlink" title="2. 类实例交给第三方管理"></a>2. 类实例交给第三方管理</h2><p>在上面说注入实例的时候，用了这么一段代码。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// SpellChecker englishSpellChecker = new SpellChecker(new EnglishLexicon());</span></span><br><span class="line">        <span class="comment">// 这里理解为更换国家，需要新的实现类，暂不理解为多个实现类共存</span></span><br><span class="line">        SpellChecker chineseSpellChecker = <span class="keyword">new</span> SpellChecker(<span class="keyword">new</span> ChineseLexicon());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这里其实就隐含了一个第三方: <code>main 函数</code>，它管理了 <code>new EnglishLexicon()</code> 和 <code>new ChineseLexicon()</code> 这两个实例，这种方式被称为 <code>手动依赖注入</code>。</p>
+<p>关于网上说的纠结 <code>这还不是自己 new 的么？</code> 这个问题，现在应该有一个答案了吧，这是 <code>手动依赖注入</code>，其中的 <code>手动</code> 就是在自己 <code>new</code>。</p>
+<p>别急，我知道你想说 <code>Spring</code> 这种框架，也可能还想说 <code>工厂模式</code> 创建 <code>bean</code> 之类的东西。</p>
+<p>有 <code>手动</code> 那就得有 <code>自动</code> 对吧，<code>Spring</code>, <code>Guice</code> 这类 IOC 容器就是 <code>自动依赖注入</code> 要不 <code>Autowired</code> 咋个会有 <code>Auto</code> 呢？</p>
+<p><code>new</code> 这个动作，是可以自己一个一个去 <code>new</code>，远古时期的猿可能也就是这么干的，但慢慢聪明的猿发现，<code>new</code> 这个动作，实在只是个机械重复性动作，枯燥无聊，还业务无关，而计算机最擅长做的事情就是 <code>重复</code>，所以就把这些工作交给了框架来完成了。</p>
+<p>那框架里又是怎么完成呢？无非就是 <code>反射 + 配置文件</code>，来实现 <code>new</code> 这个动作，当然说起来简单，做起来还是有各种困难的，什么循环依赖，引用未初始化完 bean 之类的问题也就接踵而至，具体实现细节，暂且不表，这里只是说明，<code>自动</code> 是怎么来的。</p>
+<p><code>依赖注入框架</code> 就是 <code>自动依赖注入</code> 的第三方了，总管实例的生成，存储，注入等等。容器本体是一个或者多个 <code>Map {beanName: bean 实例}</code>。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SpellChecker</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> Lexicon dict;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">SpellChecker</span><span class="params">(Lexicon dict)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.dict = dict;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isValid</span><span class="params">(String word)</span> </span>&#123;...&#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;String&gt; <span class="title">suggestions</span><span class="params">(String type)</span> </span>&#123;...&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LexiconConfig</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Lexicon <span class="title">lexicon</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 曾经是修改 xml 里 id="lexicon" 的实现类</span></span><br><span class="line">        <span class="comment">// 现在是修改 new 后面的这个类</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> EnglishLexicon();    </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上面的代码就是现代使用 <code>Spring</code> 的时候的代码了，熟悉吧，当需要更换字典的时候就 <code>return new ChineseLexicon()</code>;</p>
+<p>使用配置文件的方式更能体现自动依赖注入的强大，也更有利于理解。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"lexicon"</span> <span class="attr">class</span>=<span class="string">"com.demo.lexicon.EnglishLexicon"</span>&gt;</span><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>当需要修改实现的时候，只需要新建一个类，把 id 指过去就可以了，使用者甚至无需重新编译代码，只需要编译新增的这个类就可以了。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"lexicon"</span> <span class="attr">class</span>=<span class="string">"com.demo.lexicon.ChineseLexicon"</span>&gt;</span><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>如果都是本来就有的类，根据业务调整，更换实现类，只需要改了配置，重启应用就可以了。</p>
+<p>对于不知道 Spring 通过配置文件是怎么实例化 bean 的，一个简单示例</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 从 xml 中读到 "lexicon" 和 "com.demo.lexicon.ChineseLexicon" 两个字符串</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// ioc 本体的一部分</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">final</span> Map&lt;String, Object&gt; singletonObjects = <span class="keyword">new</span> ConcurrentHashMap&lt;&gt;(<span class="number">256</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 简单示例，不是真实实现</span></span><br><span class="line">singletonObjects.put(<span class="string">"lexicon"</span>, Class.forName(<span class="string">"com.demo.lexicon.ChineseLexicon"</span>).newInstance());</span><br><span class="line"></span><br><span class="line"><span class="comment">// @Autowired 就是在实例化 SpellChecker 的时候从 singletonObjects 中 getBean("lexicon") 来设置 dict 字段的。</span></span><br><span class="line"><span class="comment">// 这里边儿什么万一 lexicon 还没实例化完怎么办之类的问题，就需要自己去研读 Spring 的代码了。</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://lixi.fun/2020/08/02/log4j2-read-log-path-from-application-yml/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/lixifun-logo.png">
+      <meta itemprop="name" content="lixifun">
+      <meta itemprop="description" content="做个有趣的人 | FUN | 自强 笃实 求源 创新">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LIXI.FUN">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/08/02/log4j2-read-log-path-from-application-yml/" class="post-title-link" itemprop="url">log4j2 配置文件读取 application.yml 的日志路径变量</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-08-02 19:52:56" itemprop="dateCreated datePublished" datetime="2020-08-02T19:52:56+08:00">2020-08-02</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-04-15 17:59:49" itemprop="dateModified" datetime="2021-04-15T17:59:49+08:00">2021-04-15</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>在 <code>application.yml</code> 中配置</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">profiles:</span></span><br><span class="line">    <span class="attr">active:</span> <span class="string">dev</span></span><br><span class="line">  <span class="attr">application:</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">demo-application</span></span><br><span class="line"></span><br><span class="line"><span class="attr">logging:</span></span><br><span class="line">  <span class="attr">file:</span></span><br><span class="line">    <span class="comment"># 配置日志的路径，包含 spring.application.name</span></span><br><span class="line">    <span class="attr">path:</span> <span class="string">/var/log/$&#123;spring.application.name&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>在 <code>application-dev.yml</code> 中配置，指定 log4j2 的配置文件</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">logging:</span></span><br><span class="line">  <span class="attr">config:</span> <span class="string">classpath:log4j2-spring-dev.xml</span></span><br></pre></td></tr></table></figure>
+
+<p>在 <code>log4j2-spring-dev.xml</code> 中配置</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Properties</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- $&#123;sys:LOG_PATH&#125; 读取的就是 application.yml 中的 logging.file.path 的值 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"LOG_PATH"</span> <span class="attr">value</span>=<span class="string">"$&#123;sys:LOG_PATH&#125;"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">Properties</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>这样操作以后，<code>log4j2-spring.xml</code> 的内容几乎就不用更改了，不同的项目也只需要复制过去就可以了。</p>
+<p>参考: <a href="https://github.com/spring-projects/spring-boot/blob/master/spring-boot-project/spring-boot/src/main/resources/org/springframework/boot/logging/log4j2/log4j2-file.xml#L14" target="_blank" rel="noopener">org.springframework.boot.logging.log4j2.log4j2-file.xml</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://lixi.fun/2020/07/24/table-driven-with-spring/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/lixifun-logo.png">
+      <meta itemprop="name" content="lixifun">
+      <meta itemprop="description" content="做个有趣的人 | FUN | 自强 笃实 求源 创新">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LIXI.FUN">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/07/24/table-driven-with-spring/" class="post-title-link" itemprop="url">Spring & 表驱动</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-07-24 13:07:00" itemprop="dateCreated datePublished" datetime="2020-07-24T13:07:00+08:00">2020-07-24</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-04-15 17:59:49" itemprop="dateModified" datetime="2021-04-15T17:59:49+08:00">2021-04-15</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>演示导入 Excel 文件不同 Sheet ，以 Spring 中的 Service 注入 Dao 为例，</p>
+<h2 id="常规"><a href="#常规" class="headerlink" title="常规"></a>常规</h2><p><code>if/else</code> 或者 <code>switch</code> 判断以后对数据操作，好点儿每个不同条件抽象出一个方法，逻辑也会清晰些</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Slf</span>4j</span><br><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ExcelImportServiceImpl</span> <span class="keyword">implements</span> <span class="title">ExcelImportService</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> Sheet1Dao sheet1Dao;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> Sheet2Dao sheet2Dao;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> Sheet3Dao sheet3Dao;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Overide</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">importData</span><span class="params">(SheetData sheetData)</span> </span>&#123;</span><br><span class="line">        String sheetName = sheetData.getSheetName();</span><br><span class="line">        <span class="keyword">if</span> (<span class="string">"sheet1"</span>.equals(sheetName)) &#123;</span><br><span class="line">            Data data = sheetData.get();</span><br><span class="line">            <span class="comment">// 一些校验操作，数据规整操作后，插入数据</span></span><br><span class="line">            sheet1Dao.insert(data);</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="string">"sheet2"</span>.equals(sheetName)) &#123;</span><br><span class="line">            Data data = sheetData.get();</span><br><span class="line">            <span class="comment">// 一些校验操作，数据规整操作后，插入数据</span></span><br><span class="line">            sheet2Dao.insert(data);</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="string">"sheet3"</span>.equals(sheetName)) &#123;</span><br><span class="line">            Data data = sheetData.get();</span><br><span class="line">            <span class="comment">// 一些校验操作，数据规整操作后，插入数据</span></span><br><span class="line">            sheet3Dao.insert(data);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="表驱动"><a href="#表驱动" class="headerlink" title="表驱动"></a>表驱动</h2><p>要构建表，上面的问题就在于 <code>@Autowired</code> 注入的几个 <code>Dao</code> 了，这在 <a href="/2020/07/24/table-driven-with-enum/">枚举 &amp; 表驱动</a> 中是不曾出现的问题</p>
+<p>要状态对应上不同的动作，构建相应的表（Map），任务就完成了。</p>
+<p>首先拆分不同的 <code>Service</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">ExcelImportService</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">importData</span><span class="params">(SheetData sheetData)</span></span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 一会儿有大用</span></span><br><span class="line">    <span class="function">String <span class="title">getSheetName</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Getter</span></span><br><span class="line"><span class="meta">@Service</span>(<span class="string">"sheet1ImportService"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Sheet1ImportService</span> <span class="keyword">implements</span> <span class="title">ExcelImportService</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 自己标明自己是 sheet1</span></span><br><span class="line">    <span class="keyword">private</span> String sheetName = <span class="string">"sheet1"</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> Sheet1Dao sheet1Dao;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Overide</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">importData</span><span class="params">(SheetData sheetData)</span> </span>&#123;</span><br><span class="line">        Data data = sheetData.get();</span><br><span class="line">        <span class="comment">// 一些校验操作，数据规整操作后，插入数据</span></span><br><span class="line">        sheet1Dao.insert(data);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Getter</span></span><br><span class="line"><span class="meta">@Service</span>(<span class="string">"sheet2ImportService"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Sheet2ImportService</span> <span class="keyword">implements</span> <span class="title">ExcelImportService</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 自己标明自己是 sheet2</span></span><br><span class="line">    <span class="keyword">private</span> String sheetName = <span class="string">"sheet2"</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> Sheet2Dao sheet2Dao;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Overide</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">importData</span><span class="params">(SheetData sheetData)</span> </span>&#123;</span><br><span class="line">        Data data = sheetData.get();</span><br><span class="line">        <span class="comment">// 一些校验操作，数据规整操作后，插入数据</span></span><br><span class="line">        sheet2Dao.insert(data);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Getter</span></span><br><span class="line"><span class="meta">@Service</span>(<span class="string">"sheet3ImportService"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Sheet3ImportService</span> <span class="keyword">implements</span> <span class="title">ExcelImportService</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 自己标明自己是 sheet3</span></span><br><span class="line">    <span class="keyword">private</span> String sheetName = <span class="string">"sheet3"</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> Sheet3Dao sheet3Dao;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Overide</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">importData</span><span class="params">(SheetData sheetData)</span> </span>&#123;</span><br><span class="line">        Data data = sheetData.get();</span><br><span class="line">        <span class="comment">// 一些校验操作，数据规整操作后，插入数据</span></span><br><span class="line">        sheet3Dao.insert(data);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>现在就把三个 sheet 的导入拆分开了，它们都实现了 <code>ExcelImportService</code>，它们拥有不同的 <code>sheetName</code> 作为自我标识</p>
+<p>Map 的 k/v 似乎也就出来了， key (sheetName)，value (具体的 sheetXImportService 的 bean)</p>
+<p>怎么拿到 bean 呢？直接从 context 里 getBean() ? 可以，但还是要硬编码 sheetXImportService 的 beanName，如下:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ExcelImportContext</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Map&lt;String, ExcelImportService&gt; </span><br><span class="line">                                SHEETNAME_TO_IMPORT_BEAN = <span class="keyword">new</span> HashMap();</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">        SHEETNAME_TO_IMPORT_BEAN.put(<span class="string">"sheet1"</span>, Context.getBean(<span class="string">"sheet1ImportService"</span>));</span><br><span class="line">        SHEETNAME_TO_IMPORT_BEAN.put(<span class="string">"sheet2"</span>, Context.getBean(<span class="string">"sheet2ImportService"</span>));</span><br><span class="line">        SHEETNAME_TO_IMPORT_BEAN.put(<span class="string">"sheet3"</span>, Context.getBean(<span class="string">"sheet3ImportService"</span>));</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">importData</span><span class="params">(SheetData sheetData)</span> </span>&#123;</span><br><span class="line">        String sheetName = sheetData.getSheetName();</span><br><span class="line">        <span class="comment">// 未做非法值校验</span></span><br><span class="line">        SHEETNAME_TO_IMPORT_BEAN.get(sheetName).importData(sheetData.getData());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上面的代码 <code>ExcelImportContext</code> 中需要硬编码 beanName 不优雅，易出错。</p>
+<h2 id="终极进化版本"><a href="#终极进化版本" class="headerlink" title="终极进化版本"></a>终极进化版本</h2><p>主要原理 <code>@Autowired</code> 可以注入一个 interface 的所有实现：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Autowried</span></span><br><span class="line"><span class="keyword">private</span> Map&lt;String, ExcelImportContext&gt; beanNameToExcelImportBean;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Map 的内容是这个，bean 拿到了</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="string">"sheet1ImportService"</span>: 名为 shee1ImportService 的 bean,</span><br><span class="line">    <span class="string">"sheet2ImportService"</span>: 名为 shee2ImportService 的 bean,</span><br><span class="line">    <span class="string">"sheet3ImportService"</span>: 名为 shee3ImportService 的 bean</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>但是这个 <code>key</code> 不是我需要的咋个办？还记得在 <code>ExcelImportService</code> 中提供了 <code>getSheetName()</code> 方法么，让各个实现返回其对应的 <code>sheetName</code>，那么就可以在注入的时候把它提取出来了。</p>
+<p>各个实现中的 <code>getSheeName()</code> 用 lombok 的 <code>@Getter</code> 注解生成了的</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 注意这里有了一个 @Component 为了能注入</span></span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ExcelImportContext</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Map&lt;String, ExcelImportService&gt; </span><br><span class="line">                                SHEETNAME_TO_IMPORT_BEAN = <span class="keyword">new</span> HashMap();</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 使用构造方法注入提取其中的 sheetName</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ExcelImportContext</span><span class="params">(Map&lt;String, ExcelImportService&gt; map)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (Map.Entry&lt;String, ExcelImportService&gt; entry : map) &#123;</span><br><span class="line">            <span class="comment">// beanName，对我来说是没用的，写在这里只是说明一下</span></span><br><span class="line">            String beanName = entry.getKey();</span><br><span class="line">            </span><br><span class="line">            ExcelImportService bean = Eentry.getValue();</span><br><span class="line">            <span class="comment">// 提取 sheetName</span></span><br><span class="line">            String sheetName = bean.getSheetName();</span><br><span class="line">            <span class="comment">// 构建表</span></span><br><span class="line">            SHEETNAME_TO_IMPORT_BEAN.put(sheetName, bean);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">importData</span><span class="params">(SheetData sheetData)</span> </span>&#123;</span><br><span class="line">        String sheetName = sheetData.getSheetName();</span><br><span class="line">        <span class="comment">// 未做非法值校验</span></span><br><span class="line">        <span class="comment">// 多态，调用具体的方法实现</span></span><br><span class="line">        SHEETNAME_TO_IMPORT_BEAN.get(sheetName).importData(sheetData.getData());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>现在差不多了， <code>ExcelImportContext</code> 中没有硬编码的 <code>sheetName</code> 和 <code>beanName</code> 之类的了。</p>
+<p>附：<code>@Autowired</code> 还可以注入 List&lt;接口&gt; (Set&lt;接口&gt;, 或者 接口[])</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 注意这里有了一个 @Component 为了能注入</span></span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ExcelImportContext</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Map&lt;String, ExcelImportService&gt; </span><br><span class="line">                                SHEETNAME_TO_IMPORT_BEAN = <span class="keyword">new</span> HashMap();</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 使用构造方法注入提取其中的 sheetName</span></span><br><span class="line"><span class="comment">     * `<span class="doctag">@Autowired</span>` 还可以注入 List&lt;接口&gt; (Set&lt;接口&gt;, 或者 接口[])</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ExcelImportContext</span><span class="params">(List&lt;ExcelImportService&gt; importServices)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (ExcelImportService bean : importServices) &#123;</span><br><span class="line">            <span class="comment">// 提取 sheetName</span></span><br><span class="line">            String sheetName = bean.getSheetName();</span><br><span class="line">            <span class="comment">// 构建表</span></span><br><span class="line">            SHEETNAME_TO_IMPORT_BEAN.put(sheetName, bean);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">importData</span><span class="params">(SheetData sheetData)</span> </span>&#123;</span><br><span class="line">        String sheetName = sheetData.getSheetName();</span><br><span class="line">        <span class="comment">// 未做非法值校验</span></span><br><span class="line">        <span class="comment">// 多态，调用具体的方法实现</span></span><br><span class="line">        SHEETNAME_TO_IMPORT_BEAN.get(sheetName).importData(sheetData.getData());</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ul>
+<li>拆分实现，实现中带有自己的标识（sheetName)，提供得到标识的方法</li>
+<li><code>@Autowried</code> 构造注入接口的所有实现，提取想要的信息作为 key，构建表</li>
+<li>多态调用具体实现</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://lixi.fun/2020/07/24/table-driven-with-enum/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/lixifun-logo.png">
+      <meta itemprop="name" content="lixifun">
+      <meta itemprop="description" content="做个有趣的人 | FUN | 自强 笃实 求源 创新">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LIXI.FUN">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/07/24/table-driven-with-enum/" class="post-title-link" itemprop="url">枚举 & 表驱动</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-07-24 11:42:00" itemprop="dateCreated datePublished" datetime="2020-07-24T11:42:00+08:00">2020-07-24</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-04-15 17:59:49" itemprop="dateModified" datetime="2021-04-15T17:59:49+08:00">2021-04-15</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="初级版本"><a href="#初级版本" class="headerlink" title="初级版本"></a>初级版本</h2><p>先看一段代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * if/else 版本</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">trafficIfElseVersion</span><span class="params">(String trafficLight)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="string">"红色"</span>.equals(trafficLight)) &#123;</span><br><span class="line">        System.out.println(<span class="string">"现在是红灯，请停下"</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="string">"绿色"</span>.equals(trafficLight)) &#123;</span><br><span class="line">        System.out.println(<span class="string">"现在是绿灯，请通行"</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="string">"黄灯"</span>.equals(trafficLight)) &#123;</span><br><span class="line">        System.out.println(<span class="string">"现在是黄灯，请注意"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * switch 版本</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">trafficSwitchVersion</span><span class="params">(String trafficLight)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">switch</span> (trafficLight) &#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">"红色"</span>:</span><br><span class="line">            System.out.println(<span class="string">"现在是红灯，请停下"</span>);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">"绿色"</span>:</span><br><span class="line">            System.out.println(<span class="string">"现在是绿灯，请通行"</span>);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">"黄色"</span>:</span><br><span class="line">            System.out.println(<span class="string">"现在是黄灯，请注意"</span>);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">default</span>:</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上面两个版本有本质性区别吗？没有，对每个颜色的灯做一些响应，条件要写全</p>
+<h2 id="啰嗦进化"><a href="#啰嗦进化" class="headerlink" title="啰嗦进化"></a>啰嗦进化</h2><p>再来看一个版本</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// map 里封装了条件对应的动作</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Map&lt;String, Consumer&gt; TRAFFIC_LIGHT_TO_ACTION = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line"></span><br><span class="line"><span class="keyword">static</span> &#123;</span><br><span class="line">    TRAFFIC_LIGHT_TO_ACTION.put(<span class="string">"红色"</span>, o -&gt; System.out.println(<span class="string">"现在是红灯，请停下"</span>));</span><br><span class="line">    TRAFFIC_LIGHT_TO_ACTION.put(<span class="string">"绿色"</span>, o -&gt; System.out.println(<span class="string">"现在是绿灯，请通行"</span>));</span><br><span class="line">    TRAFFIC_LIGHT_TO_ACTION.put(<span class="string">"黄色"</span>, o -&gt; System.out.println(<span class="string">"现在是黄灯，请注意"</span>));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">trafficMapVersion</span><span class="params">(String trafficLight)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 不考虑非法值，只说明方向</span></span><br><span class="line">    TRAFFIC_LIGHT_TO_ACTION.get(trafficLight).accept(<span class="keyword">null</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这个版本里简单动作（方法）可以这么搞，但还是要硬编码进去，而且对于 trafficLight 这样 String 类型，一直出现在代码中，属于魔法值，复杂的方法可以把各种灯抽象出来类，实例化后作为 value 添加进去</p>
+<h2 id="再进化"><a href="#再进化" class="headerlink" title="再进化"></a>再进化</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> lombok.AllArgsConstructor;</span><br><span class="line"><span class="keyword">import</span> lombok.Getter;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Arrays;</span><br><span class="line"><span class="keyword">import</span> java.util.Map;</span><br><span class="line"><span class="keyword">import</span> java.util.Optional;</span><br><span class="line"><span class="keyword">import</span> java.util.stream.Collectors;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Getter</span></span><br><span class="line"><span class="meta">@AllArgsConstructor</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">enum</span> TrafficLight &#123;</span><br><span class="line"></span><br><span class="line">    RED(<span class="string">"红灯"</span>) &#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">action</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            System.out.println(<span class="string">"现在是红灯，请停下"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    GREEN(<span class="string">"绿灯"</span>) &#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">action</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            System.out.println(<span class="string">"现在是绿灯，请通行"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    YELLOW(<span class="string">"黄灯"</span>) &#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">action</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            System.out.println(<span class="string">"现在是黄灯，请注意"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String color;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 用于存储 color: Enum</span></span><br><span class="line"><span class="comment">     * 程序构建，不需要手动添加了</span></span><br><span class="line"><span class="comment">     * &lt;p&gt;</span></span><br><span class="line"><span class="comment">     * 在上一个的手动 map 里也可以把 各种灯抽象出类，实例化后和颜色对应，手动对应也可，反射扫描添加也可</span></span><br><span class="line"><span class="comment">     * 枚举提供了这种功能就直接用了</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Map&lt;String, TrafficLight&gt; COLOR_TO_ENUM =</span><br><span class="line">            Arrays.stream(TrafficLight.values())</span><br><span class="line">                    .collect(Collectors.toMap(TrafficLight::getColor, e -&gt; e));</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 提供通过 color 字符拿到实例的方法</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * 这里使用了 Optional 语义上表示如果 code 不存在(非法值)，起一个提示作用</span></span><br><span class="line"><span class="comment">     * 在实际使用中看情况，如果能接受返回 null 或者不存在就抛出 Exception 也是可行的</span></span><br><span class="line"><span class="comment">     * </span></span><br><span class="line"><span class="comment">     * 也许抛出 NotFoundException 是一个更好的选择?</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> color 颜色</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> 对应的实例</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Optional&lt;TrafficLight&gt; <span class="title">getEnumByColorString</span><span class="params">(String color)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> Optional.ofNullable(COLOR_TO_ENUM.get(color));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 抽象方法</span></span><br><span class="line"><span class="comment">     * 复杂的参数也可以搞</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">action</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 使用，没有了 if/else 和 switch 主逻辑更加清晰</span></span><br><span class="line">        <span class="comment">// 实际的条件转移到了 map 里的状态</span></span><br><span class="line">        String color = <span class="string">"红色"</span>;</span><br><span class="line">        Optional&lt;TrafficLight&gt; trafficLightOpt = getEnumByColorString(color);</span><br><span class="line">        <span class="keyword">if</span> (trafficLightOpt.isPresent()) &#123;</span><br><span class="line">            <span class="comment">// 这里体现了多态，具体实例去调用自己的实现</span></span><br><span class="line">            trafficLightOpt.get().action();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>总结：</p>
+<ul>
+<li>构建表 (MAP) 代替条件判断</li>
+<li>抽象方法，多态调用具体实现</li>
+<li>虽然代码没有少写，但是主逻辑确实清晰了许多，不同实例的不同实现封装到内部，清爽。</li>
+</ul>
+<p>姊妹篇 <a href="/2020/07/23/enum-commonly-used-java/">枚举的常用姿势 (JAVA 为例)</a></p>
+<p>枚举 &amp; 表驱动的方式只适用于一些比较固定的情况，如果要结合 <code>Spring</code> 需要注入 <code>service</code> 和 <code>dao</code> 这种对象的时候，就不太合适了，这个时候该怎么办呢？<br>参见 <a href="/2020/07/24/table-driven-with-spring/">Spring &amp; 表驱动</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://lixi.fun/2020/07/23/enum-code-range-java/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/lixifun-logo.png">
+      <meta itemprop="name" content="lixifun">
+      <meta itemprop="description" content="做个有趣的人 | FUN | 自强 笃实 求源 创新">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LIXI.FUN">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/07/23/enum-code-range-java/" class="post-title-link" itemprop="url">用枚举值表示范围</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-07-23 13:39:49" itemprop="dateCreated datePublished" datetime="2020-07-23T13:39:49+08:00">2020-07-23</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-04-15 17:59:49" itemprop="dateModified" datetime="2021-04-15T17:59:49+08:00">2021-04-15</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="一句话提示"><a href="#一句话提示" class="headerlink" title="一句话提示"></a>一句话提示</h2><p>Map 不用 HashMap，用 TreeMap</p>
+<h2 id="上代码"><a href="#上代码" class="headerlink" title="上代码"></a>上代码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> lombok.AllArgsConstructor;</span><br><span class="line"><span class="keyword">import</span> lombok.Getter;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Map;</span><br><span class="line"><span class="keyword">import</span> java.util.Optional;</span><br><span class="line"><span class="keyword">import</span> java.util.TreeMap;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Getter</span></span><br><span class="line"><span class="meta">@AllArgsConstructor</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">enum</span> Scope &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * A [90, 正无穷)</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    A(<span class="number">90</span>),</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * B [80, 90)</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    B(<span class="number">80</span>),</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * C [70, 80)</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    C(<span class="number">70</span>),</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * D [60, 70)</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    D(<span class="number">60</span>),</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * E [0, 60)</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    E(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 下限</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> limit;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> TreeMap&lt;Integer, Scope&gt; LIMIT_TO_SCOPE = <span class="keyword">new</span> TreeMap&lt;&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">        <span class="keyword">for</span> (Scope scope : Scope.values()) &#123;</span><br><span class="line">            LIMIT_TO_SCOPE.put(scope.limit, scope);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 通过 num 获得其所在的范围</span></span><br><span class="line"><span class="comment">     * Optional 起提示调用者可能为 空</span></span><br><span class="line"><span class="comment">     * 比如 num &lt; 0 时</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> num 数值</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> 范围</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Optional&lt;Scope&gt; <span class="title">getScopeByNum</span><span class="params">(<span class="keyword">int</span> num)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 具体使用 floorEntry 还是 ceilingEntry 需要根据上下限去实际判断</span></span><br><span class="line">        <span class="comment">// 最快的方法试一下就好了</span></span><br><span class="line">        Map.Entry&lt;Integer, Scope&gt; entry = LIMIT_TO_SCOPE.floorEntry(num);</span><br><span class="line">        <span class="keyword">return</span> entry == <span class="keyword">null</span> ? Optional.empty() : Optional.of(entry.getValue());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这样就用确定值的 code 划分了区域范围了。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://lixi.fun/2020/07/23/enum-commonly-used-java/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/lixifun-logo.png">
+      <meta itemprop="name" content="lixifun">
+      <meta itemprop="description" content="做个有趣的人 | FUN | 自强 笃实 求源 创新">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LIXI.FUN">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/07/23/enum-commonly-used-java/" class="post-title-link" itemprop="url">枚举的常用姿势 (JAVA 为例)</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-07-23 11:40:18" itemprop="dateCreated datePublished" datetime="2020-07-23T11:40:18+08:00">2020-07-23</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-04-15 17:59:49" itemprop="dateModified" datetime="2021-04-15T17:59:49+08:00">2021-04-15</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="几乎没啥用的示例"><a href="#几乎没啥用的示例" class="headerlink" title="几乎没啥用的示例"></a>几乎没啥用的示例</h2><p>初见枚举，见过最多的实例无外乎有两个 <code>Color</code> 和 <code>Week</code>，拿其中一个举个例子看看</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">enum</span> Color &#123;</span><br><span class="line">    GREEN,</span><br><span class="line">    YELLOW,</span><br><span class="line">    RED</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>然后呢？怎么用？<code>if/else</code> ? <code>switch</code> ? </p>
+<p>这样用的话，跟常量类唯一的区别就是限定了类型，让编译器能够发力限制使用以此枚举为入参的 <code>api</code> 参数类型，在一定程度上是一种进步，但实际使用完全没有变化。</p>
+<h2 id="初级进化版本"><a href="#初级进化版本" class="headerlink" title="初级进化版本"></a>初级进化版本</h2><p>我们用的数据通常是要持久化的，持久化一般用数字或者某些字符串来代替其实际含义，这样来看上面那个枚举几乎没啥用了。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 使用了 lombok 的注解，简化代码</span></span><br><span class="line"><span class="meta">@Getter</span></span><br><span class="line"><span class="meta">@AllArgsConstructor</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">enum</span> Color &#123;</span><br><span class="line">    GREEN(<span class="number">1</span>),</span><br><span class="line">    YELLOW(<span class="number">2</span>),</span><br><span class="line">    RED(<span class="number">3</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 持久化的 code 值</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> Integer code;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>现在持久化的数据和枚举建立联系了，咋个用呢？貌似还是 <code>switch</code> 只是多了一个 <code>getCode()</code> 的方法能拿到对应持久化的值，对于要通过枚举值获得持久化的值，到这里就可以做到了。</p>
+<p>可是我们从前端拿到的值是持久化的代表值，咋个转化成枚举呢？也就是从 <code>code</code> -&gt; <code>enum</code> 这步该怎么搞呢？</p>
+<h2 id="再进化版本"><a href="#再进化版本" class="headerlink" title="再进化版本"></a>再进化版本</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 使用了 lombok 的注解，简化代码</span></span><br><span class="line"><span class="meta">@Getter</span></span><br><span class="line"><span class="meta">@AllArgsConstructor</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">enum</span> Color &#123;</span><br><span class="line">    GREEN(<span class="number">1</span>),</span><br><span class="line">    YELLOW(<span class="number">2</span>),</span><br><span class="line">    RED(<span class="number">3</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> Integer code;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 表驱动</span></span><br><span class="line"><span class="comment">     * CODE: 枚举实例</span></span><br><span class="line"><span class="comment">     * </span></span><br><span class="line"><span class="comment">     * 不要直接暴露这个 Map 出去，提供一个方法出去，限制对 Map 的操作</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Map&lt;Integer, Color&gt; CODE_TO_ENUM =</span><br><span class="line">            Arrays.stream(Color.values())</span><br><span class="line">                    .collect(Collectors.toMap(Color::getCode, e -&gt; e));</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 通过 code 获取枚举实例</span></span><br><span class="line"><span class="comment">     * 这里使用了 Optional 语义上表示如果 code 不存在(非法值)，起一个提示作用</span></span><br><span class="line"><span class="comment">     * 在实际使用中看情况，如果能接受返回 null 或者不存在就抛出 Exception 也是可行的</span></span><br><span class="line"><span class="comment">     * </span></span><br><span class="line"><span class="comment">     * 也许抛出 NotFoundException 是一个更好的选择?</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> code code</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> 枚举实例</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Optional&lt;Color&gt; <span class="title">getColorByCode</span><span class="params">(Integer code)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> Optional.ofNullable(CODE_TO_ENUM.get(code));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>到这里，这个枚举就比较能覆盖常见使用场景了，比如，前台选中某种颜色，传到后端</p>
+<p>后端的 <code>xxxService.process(Color color)</code> 只接受 <code>Color</code> 类型，在这一层就限制了入参的范围，让 API 更健壮。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Optional&lt;Color&gt; colorOpt = Color.getColorByCode(colorCode);</span><br><span class="line"><span class="keyword">if</span> (colorOpt.isPresent()) &#123;</span><br><span class="line">    <span class="keyword">return</span> xxxService.process(colorOpt.get());</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> <span class="string">"something else"</span>;</span><br></pre></td></tr></table></figure>
+
+<h2 id="终极进化"><a href="#终极进化" class="headerlink" title="终极进化"></a>终极进化</h2><p>一般上面的版本就够用了，但是如果后面对于不同的 <code>Color</code> 要做除了 <code>getCode()</code> 以外的操作，还是逃不脱 <code>if/else</code> 和 <code>switch</code> 这两种做法，那该怎么解决呢？答案是抽象方法。</p>
+<p>是的，在枚举里是可以定义抽象方法的，各个实例去实现这个方法就可以了，代码可以参考 <code>JDK8 的 java.util.concurrent.TimeUnit#toXxx()</code> 方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> lombok.AllArgsConstructor;</span><br><span class="line"><span class="keyword">import</span> lombok.Getter;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Arrays;</span><br><span class="line"><span class="keyword">import</span> java.util.Map;</span><br><span class="line"><span class="keyword">import</span> java.util.Optional;</span><br><span class="line"><span class="keyword">import</span> java.util.stream.Collectors;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Getter</span></span><br><span class="line"><span class="meta">@AllArgsConstructor</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">enum</span> Color &#123;</span><br><span class="line">    GREEN(<span class="number">1</span>) &#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">printColor</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            System.out.println(<span class="string">"绿色"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    YELLOW(<span class="number">2</span>) &#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">printColor</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            System.out.println(<span class="string">"黄色"</span>);</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    RED(<span class="number">3</span>) &#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">printColor</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            System.out.println(<span class="string">"红色"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> Integer code;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * CODE: 枚举实例</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Map&lt;Integer, Color&gt; CODE_TO_ENUM =</span><br><span class="line">            Arrays.stream(Color.values())</span><br><span class="line">                    .collect(Collectors.toMap(Color::getCode, e -&gt; e));</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 通过 code 获取枚举实例</span></span><br><span class="line"><span class="comment">     * </span></span><br><span class="line"><span class="comment">     * 这里使用了 Optional 语义上表示如果 code 不存在(非法值)，起一个提示作用</span></span><br><span class="line"><span class="comment">     * 在实际使用中看情况，如果能接受返回 null 或者不存在就抛出 Exception 也是可行的</span></span><br><span class="line"><span class="comment">     * </span></span><br><span class="line"><span class="comment">     * 也许抛出 NotFoundException 是一个更好的选择?</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> code code</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> 枚举实例</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Optional&lt;Color&gt; <span class="title">getColorByCode</span><span class="params">(Integer code)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> Optional.ofNullable(CODE_TO_ENUM.get(code));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 打印颜色</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">printColor</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>先来看下原始的 <code>switch</code> 没有用抽象方法的使用方式</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">Optional&lt;Color&gt; colorOpt = getColorByCode(code);</span><br><span class="line"><span class="keyword">if</span> (colorOpt.isPresent()) &#123;</span><br><span class="line">    Color color = colorOpt.get();</span><br><span class="line">    <span class="keyword">switch</span> (color) &#123;</span><br><span class="line">        <span class="keyword">case</span> GREEN:</span><br><span class="line">            System.out.println(<span class="string">"绿色"</span>);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> YELLOW:</span><br><span class="line">            System.out.println(<span class="string">"黄色"</span>);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> RED:</span><br><span class="line">            System.out.println(<span class="string">"红色"</span>);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">default</span>:</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>使用抽象方法，如果要做 <code>printColor()</code> 的动作</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Optional&lt;Color&gt; colorOpt = Color.getColorByCode(colorCode);</span><br><span class="line"><span class="keyword">if</span> (colorOpt.isPresent()) &#123;</span><br><span class="line">    <span class="comment">// 这里体现了多态，根据具体实例调用具体方法</span></span><br><span class="line">    colorOpt.get().printColor();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>可以看到，逻辑上是一样的，使用抽象方法的这种 <code>主逻辑</code> 更清晰了，做了什么动作一目了然，没有被淹没在各种不同情况的实现细节上面，如果开始只有一个动作用 <code>switch</code> 也没啥，但要是对于不同的枚举值有很多不同的动作，那每做一个动作都去 <code>switch</code> 就真的要人命了。</p>
+<p>要注意一点的是，代码是一行也没有少写的，该有的逻辑都有，只有部分交给了程序自己去判断。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ol>
+<li>内部以 <code>code</code> 对应枚举实例的 <code>Map</code> 为表，提供通过 code 获取实例的方法;</li>
+<li>定义抽象方法，实例去实现抽象方法，利用多态做分支判断。</li>
+</ol>
+<p>预留问题：现在的 <code>code</code> 是一个确定值，从 <code>Map</code> 往外拿值有就是有，没有就是没有，那如果 <code>code</code> 是范围值呢？就像考试成绩的 A,B,C,D 它们是区间分段的，怎么搞呢？</p>
+<p>见下一篇 <a href="/2020/07/23/enum-code-range-java/">用枚举值表示范围</a>。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://lixi.fun/2020/06/04/linux-redirect/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/lixifun-logo.png">
+      <meta itemprop="name" content="lixifun">
+      <meta itemprop="description" content="做个有趣的人 | FUN | 自强 笃实 求源 创新">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LIXI.FUN">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/06/04/linux-redirect/" class="post-title-link" itemprop="url">Linux 重定向</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-06-04 17:26:56" itemprop="dateCreated datePublished" datetime="2020-06-04T17:26:56+08:00">2020-06-04</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-04-15 17:59:49" itemprop="dateModified" datetime="2021-04-15T17:59:49+08:00">2021-04-15</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <table>
+<thead>
+<tr>
+<th>标识</th>
+<th>含义</th>
+<th>注意</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>&gt;</td>
+<td>1&gt; 的缩写形式，标准输出</td>
+<td>无</td>
+</tr>
+<tr>
+<td>1&gt;</td>
+<td>标准输出</td>
+<td>1 和 &gt; 之间一定不能出现空格</td>
+</tr>
+<tr>
+<td>2&gt;</td>
+<td>错误输出</td>
+<td>2 和 &gt; 之间一定不能出现空格</td>
+</tr>
+<tr>
+<td>2&gt;&amp;1</td>
+<td>把错误输出重定向到标准输出</td>
+<td>无</td>
+</tr>
+<tr>
+<td>&amp;&gt;</td>
+<td>包含标准输出和错误输出</td>
+<td>无</td>
+</tr>
+</tbody></table>
+<p>以启动一个 java 的 jar 包程序为例，把标准输出重定向到 /dev/null，把错误输出重定向到标准输出</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 把标准输出重定向到 /dev/null，把 错误输出重定向到标准输出</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 最全写法</span></span><br><span class="line">java -jar app.jar 1&gt;/dev/null 2&gt;&amp;1</span><br><span class="line"></span><br><span class="line"><span class="comment"># 省略 1，&gt; 重定向默认就是标准输出</span></span><br><span class="line">java -jar app.jar &gt;/dev/null 2&gt;&amp;1</span><br><span class="line"></span><br><span class="line"><span class="comment"># &amp;&gt; 包含标准和错误</span></span><br><span class="line">java -jar app.jar &amp;&gt;/dev/null</span><br></pre></td></tr></table></figure>
+
+<p>附：后台启动</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># nohup 中间填写命令 &amp;</span></span><br><span class="line"><span class="comment"># 最全写法</span></span><br><span class="line">nohup java -jar app.jar 1&gt;/dev/null 2&gt;&amp;1 &amp;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 省略 1，&gt; 重定向默认就是标准输出</span></span><br><span class="line">nohup java -jar app.jar &gt;/dev/null 2&gt;&amp;1 &amp;</span><br><span class="line"></span><br><span class="line"><span class="comment"># &amp;&gt; 包含标准和错误</span></span><br><span class="line">nohup java -jar app.jar &amp;&gt;/dev/null &amp;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://lixi.fun/2019/11/08/ssh-tunnel-use/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/lixifun-logo.png">
+      <meta itemprop="name" content="lixifun">
+      <meta itemprop="description" content="做个有趣的人 | FUN | 自强 笃实 求源 创新">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LIXI.FUN">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/11/08/ssh-tunnel-use/" class="post-title-link" itemprop="url">SSH 隧道的使用</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-11-08 00:00:00" itemprop="dateCreated datePublished" datetime="2019-11-08T00:00:00+08:00">2019-11-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-04-15 17:59:49" itemprop="dateModified" datetime="2021-04-15T17:59:49+08:00">2021-04-15</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>合作部门提供的 redis 集群，kafka 集群</p>
+<p>限制条件：无 vpn，仅能通过特定跳板机（无 root 权限）连接调试开发。</p>
+<p>想要实现：本地开发连接其 redis 集群，kafka 集群进行开发调试等，否则就只能改一次代码打一次包上传了，众所周知 “Java 码农离开 ide(a) 就不会写代码了”。</p>
+<p>项目配置文件中可仅填写一部分 redis 集群的节点，其他节点会自动发现，但是对于跑起来的项目来说，实际还是要连接上其他节点的，所以这就要求本地确实能够连接上所有节点（程序自动发现的 ip:port 是其提供的不可直接访问的 ip:port）。</p>
+<p>先考虑所有的 ip:port 组合都是不同的，即不会出现 192.168.1.2:6379, 192.168.1.3:6379 这种 ip 不同 port 相同的情况。</p>
+<p>假设跳板机为 <code>dev@192.168.1.2:2222</code></p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">redis cluster:</span></span><br><span class="line">    <span class="number">192.168</span><span class="number">.9</span><span class="number">.1</span><span class="string">:6379</span></span><br><span class="line">    <span class="number">192.168</span><span class="number">.9</span><span class="number">.1</span><span class="string">:6380</span></span><br><span class="line">    <span class="number">192.168</span><span class="number">.9</span><span class="number">.1</span><span class="string">:6381</span></span><br><span class="line">    <span class="number">192.168</span><span class="number">.9</span><span class="number">.2</span><span class="string">:6479</span></span><br><span class="line">    <span class="number">192.168</span><span class="number">.9</span><span class="number">.2</span><span class="string">:6480</span></span><br><span class="line">    <span class="number">192.168</span><span class="number">.9</span><span class="number">.2</span><span class="string">:6481</span></span><br></pre></td></tr></table></figure>
+
+<p>任务拆解：</p>
+<ol>
+<li>给本机（或者其他可控主机）配置所有的的 redis 绑定的 ip，kafka 同理；</li>
+<li>所有的 port 映射到对应的 redis 监听的 port，kafka 同理。</li>
+</ol>
+<p>具体操作：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 记录本机现在的 ip 地址、子网掩码、默认网关、DNS 服务器等信息。</span></span><br><span class="line">ipconfig /ALL</span><br></pre></td></tr></table></figure>
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/2019/11/08/ssh-tunnel-use/ipconfig-0.jpg" class="" title="[ipconfig &#x2F;ALL]">
+
+<p>记录红线的内容填入下方的 “使用下面的 IP 地址”</p>
+<p>配置多 ip</p>
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/2019/11/08/ssh-tunnel-use/config-multi-ip.jpg" class="" title="[config multi ip]">
+
+<p>按照箭头一路填写把 redis 集群的 ip 都添加上即可</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 此时查看</span></span><br><span class="line">ipconfig /ALL</span><br><span class="line"></span><br><span class="line"><span class="comment"># 多出了 redis 集群相应的 ip ，且能 ping 通</span></span><br><span class="line"><span class="comment"># 这样 ip 就配置成功了</span></span><br></pre></td></tr></table></figure>
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/2019/11/08/ssh-tunnel-use/ipconfig-1.jpg" class="" title="[ipconfig &#x2F;ALL]">
+
+<p>端口的映射</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#  不用担心这是 *unix 命令怎么在 windows 上执行的问题，使用 git bash 就可以了。</span></span><br><span class="line">ssh -L 192.168.9.1:6179:192.168.9.1:6179 \</span><br><span class="line">    -L 192.168.9.1:6180:192.168.9.1:6180 \</span><br><span class="line">    -L 192.168.9.1:6181:192.168.9.1:6181 \</span><br><span class="line">    -L 192.168.9.2:6279:192.168.9.2:6279 \</span><br><span class="line">    -L 192.168.9.2:6280:192.168.9.2:6280 \</span><br><span class="line">    -L 192.168.9.2:6281:192.168.9.2:6281 \</span><br><span class="line">    -Nf dev@192.168.1.2 -p 2222</span><br></pre></td></tr></table></figure>
+
+<p>使用 <code>man ssh</code> 查看下是干了点儿啥</p>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-L</td>
+<td>绑定地址端口 本地ip:本地port:目的ip:目的port</td>
+</tr>
+<tr>
+<td>-N</td>
+<td>不要执行远程命令，仅作端口转发</td>
+</tr>
+<tr>
+<td>-f</td>
+<td>后台执行</td>
+</tr>
+</tbody></table>
+<p>完工，现在访问 192.168.9.1 和 192.168.9.2 就会通过 跳板机(192.168.1.2) 连接上远端的 192.168.9.1 和 192.168.9.2。</p>
+<p>最后，如果有存在 192.168.9.1:6379 和 192.168.9.2:6379 这样 ip 不同，端口相同的情况，可以考虑起虚拟机，给虚拟机按照上面配置，当然虚拟机是用 windows 还是 *unix 就看熟悉哪个了。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://lixi.fun/2019/08/10/aop-high-concurrency-log/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/lixifun-logo.png">
+      <meta itemprop="name" content="lixifun">
+      <meta itemprop="description" content="做个有趣的人 | FUN | 自强 笃实 求源 创新">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LIXI.FUN">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/08/10/aop-high-concurrency-log/" class="post-title-link" itemprop="url">aop打日志高并发错乱</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-08-10 17:26:56" itemprop="dateCreated datePublished" datetime="2019-08-10T17:26:56+08:00">2019-08-10</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-04-15 17:59:49" itemprop="dateModified" datetime="2021-04-15T17:59:49+08:00">2021-04-15</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>在高并发情况下，aop 日志输出时如果是多个 LOOGER.info() 日志输出一坨一坨的，根本分不清谁对应谁。</p>
+<p>两种解决方法：</p>
+<ul>
+<li>StringBuilder 拼完日志一个请求只打印一条日志</li>
+<li>aop 中给每个请求生成一个序列号，同一个请求都带上这个序列号</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://lixi.fun/2019/04/30/guide-to-installing-3rd-party-jars/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/lixifun-logo.png">
+      <meta itemprop="name" content="lixifun">
+      <meta itemprop="description" content="做个有趣的人 | FUN | 自强 笃实 求源 创新">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LIXI.FUN">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/04/30/guide-to-installing-3rd-party-jars/" class="post-title-link" itemprop="url">Maven 安装第三方 JAR 包</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-04-30 17:21:34" itemprop="dateCreated datePublished" datetime="2019-04-30T17:21:34+08:00">2019-04-30</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-04-15 17:59:49" itemprop="dateModified" datetime="2021-04-15T17:59:49+08:00">2021-04-15</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mvn install:install-file -Dfile=&lt;path-to-file&gt; -DgroupId=&lt;group-id&gt; -DartifactId=&lt;artifact-id&gt; -Dversion=&lt;version&gt; -Dpackaging=jar</span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果有 pom.xml 文件的话，可以使用</span></span><br><span class="line">mvn install:install-file -Dfile=&lt;path-to-file&gt; -DpomFile=&lt;path-to-pomfile&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 对于 2.5 以上版本的 maven-install-plugin</span></span><br><span class="line">mvn install:install-file -Dfile=&lt;path-to-file&gt;</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://maven.apache.org/guides/mini/guide-3rd-party-jars-local.html" target="_blank" rel="noopener">https://maven.apache.org/guides/mini/guide-3rd-party-jars-local.html</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+  
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="lixifun"
+      src="/images/lixifun-logo.png">
+  <p class="site-author-name" itemprop="name">lixifun</p>
+  <div class="site-description" itemprop="description">做个有趣的人 | FUN | 自强 笃实 求源 创新</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">lixifun</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=o;var i=n.imageLazyLoadSetting.isSPA,r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function o(){i&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,e,a=0;a<r.length;a++)t=r[a],e=void 0,0<=(e=t.getBoundingClientRect()).bottom&&0<=e.left&&e.top<=(n.innerHeight||document.documentElement.clientHeight)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},n.src=i}()}o(),n.addEventListener("scroll",function(){var t,e;t=o,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script></body>
+</html>
