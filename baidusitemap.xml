@@ -1,15 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://lixi.fun/2021/04/15/%E5%AF%B9ioc%E7%9A%84%E7%90%86%E8%A7%A3/</loc>
-    <lastmod>2021-04-15</lastmod>
+    <loc>https://lixi.fun/2021/04/10/understanding-of-inheritance-and-implementation-interface-in-java/</loc>
+    <lastmod>2021-04-16</lastmod>
   </url>
   <url>
-    <loc>https://lixi.fun/2020/07/24/table-driven-with-spring/</loc>
-    <lastmod>2021-04-15</lastmod>
+    <loc>https://lixi.fun/2021/04/10/why-32-bit-can-only-manage-4G-memory-at-most/</loc>
+    <lastmod>2021-04-16</lastmod>
+  </url>
+  <url>
+    <loc>https://lixi.fun/2021/04/15/understanding-of-ioc/</loc>
+    <lastmod>2021-04-16</lastmod>
   </url>
   <url>
     <loc>https://lixi.fun/2020/07/24/table-driven-with-enum/</loc>
+    <lastmod>2021-04-16</lastmod>
+  </url>
+  <url>
+    <loc>https://lixi.fun/2020/07/24/table-driven-with-spring/</loc>
     <lastmod>2021-04-15</lastmod>
   </url>
   <url>

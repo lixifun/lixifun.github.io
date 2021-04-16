@@ -175,7 +175,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://lixi.fun/2021/04/15/%E5%AF%B9ioc%E7%9A%84%E7%90%86%E8%A7%A3/">
+    <link itemprop="mainEntityOfPage" href="https://lixi.fun/2021/04/15/understanding-of-ioc/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/lixifun-logo.png">
@@ -189,7 +189,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/04/15/%E5%AF%B9ioc%E7%9A%84%E7%90%86%E8%A7%A3/" class="post-title-link" itemprop="url">对ioc的理解</a>
+            <a href="/2021/04/15/understanding-of-ioc/" class="post-title-link" itemprop="url">对 ioc 的理解</a>
         </h2>
 
         <div class="post-meta">
@@ -198,10 +198,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2021-04-15 18:11:19 / 修改时间：18:12:48" itemprop="dateCreated datePublished" datetime="2021-04-15T18:11:19+08:00">2021-04-15</time>
+              <time title="创建时间：2021-04-15 18:11:19" itemprop="dateCreated datePublished" datetime="2021-04-15T18:11:19+08:00">2021-04-15</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-04-16 17:15:22" itemprop="dateModified" datetime="2021-04-16T17:15:22+08:00">2021-04-16</time>
+              </span>
 
           
 
@@ -255,6 +261,160 @@
 <p>如果都是本来就有的类，根据业务调整，更换实现类，只需要改了配置，重启应用就可以了。</p>
 <p>对于不知道 Spring 通过配置文件是怎么实例化 bean 的，一个简单示例</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 从 xml 中读到 "lexicon" 和 "com.demo.lexicon.ChineseLexicon" 两个字符串</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// ioc 本体的一部分</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">final</span> Map&lt;String, Object&gt; singletonObjects = <span class="keyword">new</span> ConcurrentHashMap&lt;&gt;(<span class="number">256</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 简单示例，不是真实实现</span></span><br><span class="line">singletonObjects.put(<span class="string">"lexicon"</span>, Class.forName(<span class="string">"com.demo.lexicon.ChineseLexicon"</span>).newInstance());</span><br><span class="line"></span><br><span class="line"><span class="comment">// @Autowired 就是在实例化 SpellChecker 的时候从 singletonObjects 中 getBean("lexicon") 来设置 dict 字段的。</span></span><br><span class="line"><span class="comment">// 这里边儿什么万一 lexicon 还没实例化完怎么办之类的问题，就需要自己去研读 Spring 的代码了。</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://lixi.fun/2021/04/10/why-32-bit-can-only-manage-4G-memory-at-most/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/lixifun-logo.png">
+      <meta itemprop="name" content="lixifun">
+      <meta itemprop="description" content="做个有趣的人 | FUN | 自强 笃实 求源 创新">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LIXI.FUN">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/04/10/why-32-bit-can-only-manage-4G-memory-at-most/" class="post-title-link" itemprop="url">32位为什么最大只可以管理4G内存</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-04-10 12:01:28" itemprop="dateCreated datePublished" datetime="2021-04-10T12:01:28+08:00">2021-04-10</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-04-16 17:15:22" itemprop="dateModified" datetime="2021-04-16T17:15:22+08:00">2021-04-16</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>在百度上搜索，也许会得到这样的答案：$2^{32} = 4GB$</p>
+<p>可是这个值是怎么得出来的？一个没有单位的数字，得出来一个带单位的值，首先量纲就对不上。</p>
+<p>要回答这个问题，首先需要了解几个 “常识”：</p>
+<ol>
+<li>x86 平台的内存最小寻址单位是 1 字节 (1 byte, 1 B, 8 bit)。</li>
+<li>内存的地址是个数字，这个数字可取值的范围大小* 单位大小 =可管理的内存大小。</li>
+</ol>
+<p>32 位(bit) 每一个 bit 可以取 0 或 1 两个值，所以有 $2 * 2 * 2 … * 2 = 2^{32}$ 种可能取值，这个取值指的是地址这个数字，数字是没有单位的，取值范围就是 $0 到 2^{32} - 1$</p>
+<p>所以，</p>
+<p>$可管理的内存的大小 = 2^{32} * 1 byte = 2^{32} B$</p>
+<p>$= 2^{32} / 1024 KB$</p>
+<p>$= 2^{32} / 1024 / 1024 MB$</p>
+<p>$= 2^{32} / 1024 / 1024 / 1024 GB$</p>
+<p>$= 2^{32 – 10 – 10 – 10} GB= 2^2 GB= 4 GB$</p>
+<p>没有上面的解释，理解起来确实没头没脑的。</p>
+<p>这也就解释了，bool 变量明明只要 1 bit 就可以表示了，但在一般编程语言里却需要 1 byte 的存储空间，因为一个内存地址指向的最小寻址单位是 1 byte。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://lixi.fun/2021/04/10/understanding-of-inheritance-and-implementation-interface-in-java/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/lixifun-logo.png">
+      <meta itemprop="name" content="lixifun">
+      <meta itemprop="description" content="做个有趣的人 | FUN | 自强 笃实 求源 创新">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LIXI.FUN">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/04/10/understanding-of-inheritance-and-implementation-interface-in-java/" class="post-title-link" itemprop="url">对 Java 中继承和实现接口的理解</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-04-10 12:01:28" itemprop="dateCreated datePublished" datetime="2021-04-10T12:01:28+08:00">2021-04-10</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-04-16 17:16:30" itemprop="dateModified" datetime="2021-04-16T17:16:30+08:00">2021-04-16</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>通常大家比较的都是抽象类和接口的异同，而我这里写的是继承而不是抽象类，是因为我这里的比较对象是 “实现接口” 而不是接口这个概念。</p>
+<p>在我看来，继承和实现接口的主要区别在于：状态。具体点儿就是父类的字段。</p>
+<p>继承有状态的传递，而实现接口没有。</p>
+<p>这里就有些像微服务里的 “无状态” 的说法了。</p>
+<p>所以什么时候用继承呢？</p>
+<ol>
+<li>接口的拓展，接口继承接口，这个是语法限制</li>
+<li>有状态字段，不用继承没法</li>
+</ol>
+<p>其他情况下，慎用继承。</p>
 
       
     </div>
@@ -475,7 +635,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-04-15 17:59:49" itemprop="dateModified" datetime="2021-04-15T17:59:49+08:00">2021-04-15</time>
+                <time title="修改时间：2021-04-16 11:22:46" itemprop="dateModified" datetime="2021-04-16T11:22:46+08:00">2021-04-16</time>
               </span>
 
           
@@ -497,7 +657,7 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// map 里封装了条件对应的动作</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Map&lt;String, Consumer&gt; TRAFFIC_LIGHT_TO_ACTION = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line"></span><br><span class="line"><span class="keyword">static</span> &#123;</span><br><span class="line">    TRAFFIC_LIGHT_TO_ACTION.put(<span class="string">"红色"</span>, o -&gt; System.out.println(<span class="string">"现在是红灯，请停下"</span>));</span><br><span class="line">    TRAFFIC_LIGHT_TO_ACTION.put(<span class="string">"绿色"</span>, o -&gt; System.out.println(<span class="string">"现在是绿灯，请通行"</span>));</span><br><span class="line">    TRAFFIC_LIGHT_TO_ACTION.put(<span class="string">"黄色"</span>, o -&gt; System.out.println(<span class="string">"现在是黄灯，请注意"</span>));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">trafficMapVersion</span><span class="params">(String trafficLight)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 不考虑非法值，只说明方向</span></span><br><span class="line">    TRAFFIC_LIGHT_TO_ACTION.get(trafficLight).accept(<span class="keyword">null</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>这个版本里简单动作（方法）可以这么搞，但还是要硬编码进去，而且对于 trafficLight 这样 String 类型，一直出现在代码中，属于魔法值，复杂的方法可以把各种灯抽象出来类，实例化后作为 value 添加进去</p>
-<h2 id="再进化"><a href="#再进化" class="headerlink" title="再进化"></a>再进化</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> lombok.AllArgsConstructor;</span><br><span class="line"><span class="keyword">import</span> lombok.Getter;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Arrays;</span><br><span class="line"><span class="keyword">import</span> java.util.Map;</span><br><span class="line"><span class="keyword">import</span> java.util.Optional;</span><br><span class="line"><span class="keyword">import</span> java.util.stream.Collectors;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Getter</span></span><br><span class="line"><span class="meta">@AllArgsConstructor</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">enum</span> TrafficLight &#123;</span><br><span class="line"></span><br><span class="line">    RED(<span class="string">"红灯"</span>) &#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">action</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            System.out.println(<span class="string">"现在是红灯，请停下"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    GREEN(<span class="string">"绿灯"</span>) &#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">action</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            System.out.println(<span class="string">"现在是绿灯，请通行"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    YELLOW(<span class="string">"黄灯"</span>) &#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">action</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            System.out.println(<span class="string">"现在是黄灯，请注意"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String color;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 用于存储 color: Enum</span></span><br><span class="line"><span class="comment">     * 程序构建，不需要手动添加了</span></span><br><span class="line"><span class="comment">     * &lt;p&gt;</span></span><br><span class="line"><span class="comment">     * 在上一个的手动 map 里也可以把 各种灯抽象出类，实例化后和颜色对应，手动对应也可，反射扫描添加也可</span></span><br><span class="line"><span class="comment">     * 枚举提供了这种功能就直接用了</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Map&lt;String, TrafficLight&gt; COLOR_TO_ENUM =</span><br><span class="line">            Arrays.stream(TrafficLight.values())</span><br><span class="line">                    .collect(Collectors.toMap(TrafficLight::getColor, e -&gt; e));</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 提供通过 color 字符拿到实例的方法</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * 这里使用了 Optional 语义上表示如果 code 不存在(非法值)，起一个提示作用</span></span><br><span class="line"><span class="comment">     * 在实际使用中看情况，如果能接受返回 null 或者不存在就抛出 Exception 也是可行的</span></span><br><span class="line"><span class="comment">     * </span></span><br><span class="line"><span class="comment">     * 也许抛出 NotFoundException 是一个更好的选择?</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> color 颜色</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> 对应的实例</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Optional&lt;TrafficLight&gt; <span class="title">getEnumByColorString</span><span class="params">(String color)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> Optional.ofNullable(COLOR_TO_ENUM.get(color));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 抽象方法</span></span><br><span class="line"><span class="comment">     * 复杂的参数也可以搞</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">action</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 使用，没有了 if/else 和 switch 主逻辑更加清晰</span></span><br><span class="line">        <span class="comment">// 实际的条件转移到了 map 里的状态</span></span><br><span class="line">        String color = <span class="string">"红色"</span>;</span><br><span class="line">        Optional&lt;TrafficLight&gt; trafficLightOpt = getEnumByColorString(color);</span><br><span class="line">        <span class="keyword">if</span> (trafficLightOpt.isPresent()) &#123;</span><br><span class="line">            <span class="comment">// 这里体现了多态，具体实例去调用自己的实现</span></span><br><span class="line">            trafficLightOpt.get().action();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="再进化"><a href="#再进化" class="headerlink" title="再进化"></a>再进化</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> lombok.AllArgsConstructor;</span><br><span class="line"><span class="keyword">import</span> lombok.Getter;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Arrays;</span><br><span class="line"><span class="keyword">import</span> java.util.Map;</span><br><span class="line"><span class="keyword">import</span> java.util.Optional;</span><br><span class="line"><span class="keyword">import</span> java.util.stream.Collectors;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Getter</span></span><br><span class="line"><span class="meta">@AllArgsConstructor</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">enum</span> TrafficLight &#123;</span><br><span class="line"></span><br><span class="line">    RED(<span class="string">"红灯"</span>) &#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">action</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            System.out.println(<span class="string">"现在是红灯，请停下"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    GREEN(<span class="string">"绿灯"</span>) &#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">action</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            System.out.println(<span class="string">"现在是绿灯，请通行"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    YELLOW(<span class="string">"黄灯"</span>) &#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">action</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            System.out.println(<span class="string">"现在是黄灯，请注意"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String color;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 用于存储 color: Enum</span></span><br><span class="line"><span class="comment">     * 程序构建，不需要手动添加了</span></span><br><span class="line"><span class="comment">     * &lt;p&gt;</span></span><br><span class="line"><span class="comment">     * 在上一个的手动 map 里也可以把 各种灯抽象出类，实例化后和颜色对应，手动对应也可，反射扫描添加也可</span></span><br><span class="line"><span class="comment">     * 枚举提供了这种功能就直接用了</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Map&lt;String, TrafficLight&gt; COLOR_TO_ENUM =</span><br><span class="line">            Arrays.stream(TrafficLight.values())</span><br><span class="line">                    .collect(Collectors.toMap(TrafficLight::getColor, e -&gt; e));</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 提供通过 color 字符拿到实例的方法</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * 这里使用了 Optional 语义上表示如果 code 不存在(非法值)，起一个提示作用</span></span><br><span class="line"><span class="comment">     * 在实际使用中看情况，如果能接受返回 null 或者不存在就抛出 Exception 也是可行的</span></span><br><span class="line"><span class="comment">     * </span></span><br><span class="line"><span class="comment">     * 也许抛出 NotFoundException 是一个更好的选择? 不是，有 Optional 以后，应该有 Optional</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> color 颜色</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> 对应的实例</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Optional&lt;TrafficLight&gt; <span class="title">getEnumByColorString</span><span class="params">(String color)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> Optional.ofNullable(COLOR_TO_ENUM.get(color));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 抽象方法</span></span><br><span class="line"><span class="comment">     * 复杂的参数也可以搞</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">action</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 使用，没有了 if/else 和 switch 主逻辑更加清晰</span></span><br><span class="line">        <span class="comment">// 实际的条件转移到了 map 里的状态</span></span><br><span class="line">        String color = <span class="string">"红色"</span>;</span><br><span class="line">        Optional&lt;TrafficLight&gt; trafficLightOpt = getEnumByColorString(color);</span><br><span class="line">        <span class="keyword">if</span> (trafficLightOpt.isPresent()) &#123;</span><br><span class="line">            <span class="comment">// 这里体现了多态，具体实例去调用自己的实现</span></span><br><span class="line">            trafficLightOpt.get().action();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>总结：</p>
 <ul>
@@ -906,143 +1066,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://lixi.fun/2019/08/10/aop-high-concurrency-log/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/lixifun-logo.png">
-      <meta itemprop="name" content="lixifun">
-      <meta itemprop="description" content="做个有趣的人 | FUN | 自强 笃实 求源 创新">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="LIXI.FUN">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/08/10/aop-high-concurrency-log/" class="post-title-link" itemprop="url">aop打日志高并发错乱</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-08-10 17:26:56" itemprop="dateCreated datePublished" datetime="2019-08-10T17:26:56+08:00">2019-08-10</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-04-15 17:59:49" itemprop="dateModified" datetime="2021-04-15T17:59:49+08:00">2021-04-15</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>在高并发情况下，aop 日志输出时如果是多个 LOOGER.info() 日志输出一坨一坨的，根本分不清谁对应谁。</p>
-<p>两种解决方法：</p>
-<ul>
-<li>StringBuilder 拼完日志一个请求只打印一条日志</li>
-<li>aop 中给每个请求生成一个序列号，同一个请求都带上这个序列号</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://lixi.fun/2019/04/30/guide-to-installing-3rd-party-jars/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/lixifun-logo.png">
-      <meta itemprop="name" content="lixifun">
-      <meta itemprop="description" content="做个有趣的人 | FUN | 自强 笃实 求源 创新">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="LIXI.FUN">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/04/30/guide-to-installing-3rd-party-jars/" class="post-title-link" itemprop="url">Maven 安装第三方 JAR 包</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-04-30 17:21:34" itemprop="dateCreated datePublished" datetime="2019-04-30T17:21:34+08:00">2019-04-30</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-04-15 17:59:49" itemprop="dateModified" datetime="2021-04-15T17:59:49+08:00">2021-04-15</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mvn install:install-file -Dfile=&lt;path-to-file&gt; -DgroupId=&lt;group-id&gt; -DartifactId=&lt;artifact-id&gt; -Dversion=&lt;version&gt; -Dpackaging=jar</span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果有 pom.xml 文件的话，可以使用</span></span><br><span class="line">mvn install:install-file -Dfile=&lt;path-to-file&gt; -DpomFile=&lt;path-to-pomfile&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 对于 2.5 以上版本的 maven-install-plugin</span></span><br><span class="line">mvn install:install-file -Dfile=&lt;path-to-file&gt;</span><br></pre></td></tr></table></figure>
-
-<p><a href="https://maven.apache.org/guides/mini/guide-3rd-party-jars-local.html" target="_blank" rel="noopener">https://maven.apache.org/guides/mini/guide-3rd-party-jars-local.html</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1114,12 +1137,12 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-count">13</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-count">21</span>
         <span class="site-state-item-name">标签</span>
       </div>
   </nav>
@@ -1203,6 +1226,63 @@
 
 
   
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+          load: ['[tex]/mhchem'],
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+          packages: {'[+]': ['mhchem']},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 
