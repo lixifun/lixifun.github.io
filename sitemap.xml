@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://lixi.fun/2021/04/16/service-down/</loc>
+    
+    <lastmod>2021-04-16T15:02:40.572Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://lixi.fun/2021/04/16/why-redis-so-fast/</loc>
     
     <lastmod>2021-04-16T14:03:07.148Z</lastmod>
