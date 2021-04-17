@@ -28,7 +28,7 @@
 <meta property="og:description" content="首先抛出一个问题：C10K 问题是个什么问题？ 从整个系统的服务能力来看 C10K 首先是一个关于连接，尤其是长连接的问题，只是高并发的一个前置条件，即一个进程支持大量连接的问题，接入连接之后的是否能够提供服务是另一个问题了。 IO 多路复用，解决的也就是这个前置条件，关于一个进程维持大量连接这件事儿。 对于近几年从业的小伙伴来说，不知道会不会有我一样的疑问，为什么说 BIO 的时候，就提到一个连">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-04-16T10:11:19.000Z">
-<meta property="article:modified_time" content="2021-04-17T02:17:18.689Z">
+<meta property="article:modified_time" content="2021-04-17T02:23:29.080Z">
 <meta property="article:author" content="lixifun">
 <meta property="article:tag" content="IO">
 <meta property="article:tag" content="多路复用">
@@ -204,7 +204,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-04-17 10:17:18" itemprop="dateModified" datetime="2021-04-17T10:17:18+08:00">2021-04-17</time>
+                <time title="修改时间：2021-04-17 10:23:29" itemprop="dateModified" datetime="2021-04-17T10:23:29+08:00">2021-04-17</time>
               </span>
 
           
@@ -223,7 +223,7 @@
 <p>IO 多路复用，解决的也就是这个前置条件，关于一个进程维持大量连接这件事儿。</p>
 <p>对于近几年从业的小伙伴来说，不知道会不会有我一样的疑问，为什么说 BIO 的时候，就提到一个连接一个线程，他们就不会用线程池吗？</p>
 <p>首先要分两种线程：I/O 线程 和 工作线程，对于 BIO 来说，I/O 线程同时也是工作线程，它本身的模型会阻塞住 I/O 线程，整体系统服务能力受限于线程的数量。</p>
-<p>如果用线程池呢？当 BIO 用于短连接的时候，可以避免创建大量线程，系统不会被大量连接冲挂，对于长连接来说，则只能服务线程池数量的连接数，一个连接一个线程说的是一个连接一个 I/O 线程。</p>
+<p>如果用线程池呢？当 BIO 用于短连接的时候，可以避免创建大量线程，避免系统资源耗尽，对于长连接来说，则只能服务线程池数量的连接数，一个连接一个线程说的是一个连接一个 I/O 线程。</p>
 <p>同时，有些现在我们习以为常的东西，在那个年代是不存在的，比如我们现在随便一个进程都可以维持成千上百个连接的能力，硬件性能也上去了，就是一个连接一个线程也不是不行，但是在那个年代，抱歉，不可以，一个进程能打开的连接数量就是受限制的，硬件性能也不行，前提条件就给卡死了。</p>
 <p>预备知识：</p>
 <ul>
