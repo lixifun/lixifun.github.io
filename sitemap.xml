@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://lixi.fun/2021/04/16/what-problem-does-IO-multiplexing-solve/</loc>
+    
+    <lastmod>2021-04-17T02:02:31.521Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://lixi.fun/2020/04/10/why-1-byte-equals-to-8-bits/</loc>
     
     <lastmod>2021-04-16T15:47:23.252Z</lastmod>
@@ -19,13 +26,6 @@
     <loc>https://lixi.fun/2021/04/16/why-redis-so-fast/</loc>
     
     <lastmod>2021-04-16T14:03:07.148Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://lixi.fun/2021/04/16/what-problem-does-IO-multiplexing-solve/</loc>
-    
-    <lastmod>2021-04-16T13:47:34.355Z</lastmod>
     
   </url>
   
@@ -65,14 +65,14 @@
   </url>
   
   <url>
-    <loc>https://lixi.fun/2020/08/02/log4j2-read-log-path-from-application-yml/</loc>
+    <loc>https://lixi.fun/2019/11/08/ssh-tunnel-use/</loc>
     
     <lastmod>2021-04-15T09:59:49.227Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://lixi.fun/2019/11/08/ssh-tunnel-use/</loc>
+    <loc>https://lixi.fun/2020/08/02/log4j2-read-log-path-from-application-yml/</loc>
     
     <lastmod>2021-04-15T09:59:49.227Z</lastmod>
     
