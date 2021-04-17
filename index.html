@@ -198,10 +198,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2021-04-16 23:00:00 / 修改时间：23:02:40" itemprop="dateCreated datePublished" datetime="2021-04-16T23:00:00+08:00">2021-04-16</time>
+              <time title="创建时间：2021-04-16 23:00:00" itemprop="dateCreated datePublished" datetime="2021-04-16T23:00:00+08:00">2021-04-16</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-04-17 10:29:11" itemprop="dateModified" datetime="2021-04-17T10:29:11+08:00">2021-04-17</time>
+              </span>
 
           
 
@@ -214,15 +220,17 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>在查询高并发资料的过程中，不知道有没有人跟我有一样的疑问”高并发为什么会把服务搞挂掉呢？”这个挂掉，具体指的是什么意思么？进程的崩溃吗？</p>
+          <p>不知道有没有人跟我有一样的疑问”大量请求涌入为什么会把服务搞挂掉？”</p>
+<p>有线程池的存在，不是限制了进程能占用的系统资源么？为什么会挂掉呢？</p>
+<p>所以问题就出在，这个挂掉，具体指的是什么意思么？进程的崩溃吗？</p>
 <p>答：这里的“挂掉”一般情况下来说，说的还真不是进程挂掉。</p>
 <p>以一个单体的 springboot 构建的 hello-world 的 web 程序来进行举例。</p>
 <p>tomcat 线程池默认 </p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">min</span> <span class="string">=</span> <span class="number">10</span></span><br><span class="line"><span class="string">max</span> <span class="string">=</span> <span class="number">200</span></span><br><span class="line"><span class="string">queue-size</span> <span class="string">=</span> <span class="string">Integer.MAX_VALUE</span></span><br></pre></td></tr></table></figure>
 
-<p>如果一下子涌入成上千万个请求，假设网卡之类的不会成为瓶颈，进程也能够维持这么多的连接，那前面的请求就会马上占据线程池里的所有 200 个线程，进行处理，后面的请求进行排队。</p>
-<p>此时就要注意了，程序的处理速度是有限的，越后面入队的请求的等待时间就会越长，请求的客户端如果是程序的话，就可能会触发客户端的超时重试，进一步加大了服务器的压力（重新入队等待），如果是人的话，就更可怕了，那个刷新点击来简直太顺手了，虽然服务器一般会有预留空间，服务器的 CPU 可能并不会占满，但是对于客户端来说，这个服务<strong>因为排队等待时间过长，几乎处于不可用状态</strong>，我理解这就是 “挂掉” 了。</p>
-<p>如果因为某个 api 的拥挤，抢占了主要业务的空间，那真的是 “挂掉” 了。</p>
+<p>如果一下子涌入上千万个请求，假设网卡之类的不会成为瓶颈，进程也能够维持这么多的连接，那前面的请求就会马上占据线程池里的所有 200 个线程，进行处理，后面的请求进入等待队列。</p>
+<p>此时就要注意了，程序的处理速度是有限的，越后面入队的请求的等待时间就会越长，请求的客户端如果是程序的话，就可能会触发客户端的超时重试，进一步加大了服务器的压力（新重新入队等待），如果是人的话，就更可怕了，那个刷新点击来简直太顺手了，虽然服务器一般会有预留空间，服务器的 CPU 可能并不会占满，但是对于客户端来说，这个服务<strong>因为排队等待时间过长，几乎处于不可用状态</strong>，我理解这就是 “挂掉” 了。</p>
+<p>如果因为某个 api 的拥挤，抢占了主要业务的空间，那真更完蛋了。</p>
 <p>解决方案：</p>
 <ul>
 <li>针对 api 限流</li>

@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://lixi.fun/2021/04/16/service-down/</loc>
+    <lastmod>2021-04-17</lastmod>
+  </url>
+  <url>
     <loc>https://lixi.fun/2021/04/16/what-problem-does-IO-multiplexing-solve/</loc>
     <lastmod>2021-04-17</lastmod>
   </url>
   <url>
     <loc>https://lixi.fun/2020/04/10/why-1-byte-equals-to-8-bits/</loc>
-    <lastmod>2021-04-16</lastmod>
-  </url>
-  <url>
-    <loc>https://lixi.fun/2021/04/16/service-down/</loc>
     <lastmod>2021-04-16</lastmod>
   </url>
   <url>
@@ -45,11 +45,11 @@
     <lastmod>2021-04-15</lastmod>
   </url>
   <url>
-    <loc>https://lixi.fun/2018/10/10/handling-archlinux-error/</loc>
+    <loc>https://lixi.fun/2020/06/04/linux-redirect/</loc>
     <lastmod>2021-04-15</lastmod>
   </url>
   <url>
-    <loc>https://lixi.fun/2020/06/04/linux-redirect/</loc>
+    <loc>https://lixi.fun/2018/10/10/handling-archlinux-error/</loc>
     <lastmod>2021-04-15</lastmod>
   </url>
   <url>
