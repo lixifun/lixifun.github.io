@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://lixi.fun/2020/07/24/table-driven-with-enum/</loc>
+    <lastmod>2021-05-27</lastmod>
+  </url>
+  <url>
+    <loc>https://lixi.fun/2020/07/23/enum-commonly-used-java/</loc>
+    <lastmod>2021-05-27</lastmod>
+  </url>
+  <url>
+    <loc>https://lixi.fun/2021/05/27/java-threadlocal-use-case-1/</loc>
+    <lastmod>2021-05-27</lastmod>
+  </url>
+  <url>
     <loc>https://lixi.fun/2021/05/19/null-hash-code/</loc>
     <lastmod>2021-05-19</lastmod>
   </url>
@@ -41,10 +53,6 @@
     <lastmod>2021-04-16</lastmod>
   </url>
   <url>
-    <loc>https://lixi.fun/2020/07/24/table-driven-with-enum/</loc>
-    <lastmod>2021-04-16</lastmod>
-  </url>
-  <url>
     <loc>https://lixi.fun/2020/07/24/table-driven-with-spring/</loc>
     <lastmod>2021-04-15</lastmod>
   </url>
@@ -57,19 +65,15 @@
     <lastmod>2021-04-15</lastmod>
   </url>
   <url>
-    <loc>https://lixi.fun/2020/06/04/linux-redirect/</loc>
-    <lastmod>2021-04-15</lastmod>
-  </url>
-  <url>
     <loc>https://lixi.fun/2018/10/10/handling-archlinux-error/</loc>
     <lastmod>2021-04-15</lastmod>
   </url>
   <url>
-    <loc>https://lixi.fun/2019/04/30/guide-to-installing-3rd-party-jars/</loc>
+    <loc>https://lixi.fun/2020/06/04/linux-redirect/</loc>
     <lastmod>2021-04-15</lastmod>
   </url>
   <url>
-    <loc>https://lixi.fun/2020/07/23/enum-commonly-used-java/</loc>
+    <loc>https://lixi.fun/2019/04/30/guide-to-installing-3rd-party-jars/</loc>
     <lastmod>2021-04-15</lastmod>
   </url>
   <url>
