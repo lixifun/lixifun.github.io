@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://lixi.fun/2021/05/29/idea-live-template/</loc>
+    
+    <lastmod>2021-05-29T14:53:00.025Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://lixi.fun/2021/05/29/javac-parameters/</loc>
+    
+    <lastmod>2021-05-29T14:51:48.765Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://lixi.fun/2021/04/16/why-redis-so-fast/</loc>
     
     <lastmod>2021-05-27T07:08:01.994Z</lastmod>
