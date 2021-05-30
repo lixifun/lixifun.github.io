@@ -20,15 +20,15 @@
     var CONFIG = {"hostname":"lixi.fun","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="如果百度得到的答案，扯到了 epoll，甚至说是因为单线程，没有多线程的上下文切换锁之类的所以快的，不用看了又是一篇复制粘贴的文章，因为 epoll 解决的问题就不是快，具体可以看 IO 多路复用解决的啥问题，如果非要说 epoll 快，那必然对比的是 select 和 poll，说的是查表和遍历的区别。 ps: 现在，最新版的 redis (6.x) 开始用多线程来处理 IO 了。 Redis">
+  <meta name="description" content="如果百度得到的答案，扯到了因为单线程，没有多线程的上下文切换锁之类的所以快的，还有 epoll 之类的，不用看了又是一篇复制粘贴的文章，因为 epoll 首要解决的问题就不是快，具体可以看 IO 多路复用解决的啥问题，ps: 现在，最新版的 redis (6.x) 开始用多线程来处理 IO 了。 Redis 快的主要原因：  纯内存操作 数据结构简单高效  benchmark 里的每秒增删改查的数">
 <meta property="og:type" content="article">
 <meta property="og:title" content="为什么 Redis 这么快？">
 <meta property="og:url" content="https://lixi.fun/2021/04/16/why-redis-so-fast/index.html">
 <meta property="og:site_name" content="LIXI.FUN">
-<meta property="og:description" content="如果百度得到的答案，扯到了 epoll，甚至说是因为单线程，没有多线程的上下文切换锁之类的所以快的，不用看了又是一篇复制粘贴的文章，因为 epoll 解决的问题就不是快，具体可以看 IO 多路复用解决的啥问题，如果非要说 epoll 快，那必然对比的是 select 和 poll，说的是查表和遍历的区别。 ps: 现在，最新版的 redis (6.x) 开始用多线程来处理 IO 了。 Redis">
+<meta property="og:description" content="如果百度得到的答案，扯到了因为单线程，没有多线程的上下文切换锁之类的所以快的，还有 epoll 之类的，不用看了又是一篇复制粘贴的文章，因为 epoll 首要解决的问题就不是快，具体可以看 IO 多路复用解决的啥问题，ps: 现在，最新版的 redis (6.x) 开始用多线程来处理 IO 了。 Redis 快的主要原因：  纯内存操作 数据结构简单高效  benchmark 里的每秒增删改查的数">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-04-16T12:00:00.000Z">
-<meta property="article:modified_time" content="2021-05-27T07:08:01.994Z">
+<meta property="article:modified_time" content="2021-05-30T01:17:50.108Z">
 <meta property="article:author" content="lixifun">
 <meta property="article:tag" content="redis">
 <meta name="twitter:card" content="summary">
@@ -200,7 +200,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-27 15:08:01" itemprop="dateModified" datetime="2021-05-27T15:08:01+08:00">2021-05-27</time>
+                <time title="修改时间：2021-05-30 09:17:50" itemprop="dateModified" datetime="2021-05-30T09:17:50+08:00">2021-05-30</time>
               </span>
 
           
@@ -214,8 +214,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>如果百度得到的答案，扯到了 epoll，甚至说是因为单线程，没有多线程的上下文切换锁之类的所以快的，不用看了又是一篇复制粘贴的文章，因为 epoll 解决的问题就不是快，具体可以看 <a href="https://lixi.fun/2021/04/16/what-problem-does-IO-multiplexing-solve/">IO 多路复用解决的啥问题</a>，如果非要说 epoll 快，那必然对比的是 select 和 poll，说的是查表和遍历的区别。</p>
-<p>ps: 现在，最新版的 redis (6.x) 开始用多线程来处理 IO 了。</p>
+        <p>如果百度得到的答案，扯到了因为单线程，没有多线程的上下文切换锁之类的所以快的，还有 epoll 之类的，不用看了又是一篇复制粘贴的文章，因为 epoll 首要解决的问题就不是快，具体可以看 <a href="https://lixi.fun/2021/04/16/what-problem-does-IO-multiplexing-solve/">IO 多路复用解决的啥问题</a>，ps: 现在，最新版的 redis (6.x) 开始用多线程来处理 IO 了。</p>
 <p>Redis 快的主要原因：</p>
 <ol>
 <li>纯内存操作</li>
