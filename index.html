@@ -936,7 +936,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://lixi.fun/2021/04/10/understanding-of-inheritance-and-implementation-interface-in-java/">
+    <link itemprop="mainEntityOfPage" href="https://lixi.fun/2021/04/15/windows-open-big-txt-utf8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/lixifun-logo.png">
@@ -950,7 +950,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/04/10/understanding-of-inheritance-and-implementation-interface-in-java/" class="post-title-link" itemprop="url">对 Java 中继承和实现接口的理解</a>
+            <a href="/2021/04/15/windows-open-big-txt-utf8/" class="post-title-link" itemprop="url">windows 里临时查看个大文本文件</a>
         </h2>
 
         <div class="post-meta">
@@ -960,14 +960,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-04-10 12:01:28" itemprop="dateCreated datePublished" datetime="2021-04-10T12:01:28+08:00">2021-04-10</time>
+              <time title="创建时间：2021-04-15 11:00:53" itemprop="dateCreated datePublished" datetime="2021-04-15T11:00:53+08:00">2021-04-15</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-04-16 17:16:30" itemprop="dateModified" datetime="2021-04-16T17:16:30+08:00">2021-04-16</time>
+                <time title="修改时间：2021-05-30 11:12:53" itemprop="dateModified" datetime="2021-05-30T11:12:53+08:00">2021-05-30</time>
               </span>
 
           
@@ -981,16 +981,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>通常大家比较的都是抽象类和接口的异同，而我这里写的是继承而不是抽象类，是因为我这里的比较对象是 “实现接口” 而不是接口这个概念。</p>
-<p>在我看来，继承和实现接口的主要区别在于：状态。具体点儿就是父类的字段。</p>
-<p>继承有状态的传递，而实现接口没有。</p>
-<p>这里就有些像微服务里的 “无状态” 的说法了。</p>
-<p>所以什么时候用继承呢？</p>
-<ol>
-<li>接口的拓展，接口继承接口，这个是语法限制</li>
-<li>有状态字段，不用继承没法</li>
+          <ol>
+<li>windows 也有 <code>more</code> 命令</li>
+<li>cmd 中中文默认为 <code>gbk</code></li>
 </ol>
-<p>其他情况下，慎用继承。</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># 如果 <span class="built_in">more</span> 可以直接查看皆大欢喜</span><br><span class="line"># 如果不可以，查看当前窗口的编码</span><br><span class="line"><span class="built_in">chcp</span></span><br><span class="line"></span><br><span class="line"># <span class="number">936</span> 是 gbk</span><br><span class="line"></span><br><span class="line"># 更改为 utf8 (并不完全对应)</span><br><span class="line"><span class="built_in">chcp</span> <span class="number">65001</span></span><br><span class="line"></span><br><span class="line"># 查看 utf8 格式的大文本文件</span><br><span class="line"><span class="built_in">more</span> 文件</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -1077,12 +1072,12 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">24</span>
+          <span class="site-state-item-count">25</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">39</span>
+        <span class="site-state-item-count">40</span>
         <span class="site-state-item-name">标签</span>
       </div>
   </nav>
