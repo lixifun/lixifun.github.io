@@ -198,10 +198,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2021-05-29 22:23:03 / 修改时间：22:51:48" itemprop="dateCreated datePublished" datetime="2021-05-29T22:23:03+08:00">2021-05-29</time>
+              <time title="创建时间：2021-05-29 22:23:03" itemprop="dateCreated datePublished" datetime="2021-05-29T22:23:03+08:00">2021-05-29</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-05-30 09:30:29" itemprop="dateModified" datetime="2021-05-30T09:30:29+08:00">2021-05-30</time>
+              </span>
 
           
 
@@ -233,7 +239,7 @@
 </video
 
 <hr>
-<p>配置 maven 插件的方式，暂未试验。</p>
+<p>配置 maven 插件的方式，暂未试验。如果配置 <code>-parameters</code> 参数，将使得不需要获得方法入参的方法也会带有入参的名称，致使 class 文件增大，所以推荐使用方法一种的，只在需要的地方手动注明。</p>
 
       
     </div>
@@ -858,80 +864,6 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://lixi.fun/2021/04/10/understanding-of-inheritance-and-implementation-interface-in-java/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/lixifun-logo.png">
-      <meta itemprop="name" content="lixifun">
-      <meta itemprop="description" content="做个有趣的人 | FUN | 自强 笃实 求源 创新">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="LIXI.FUN">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/04/10/understanding-of-inheritance-and-implementation-interface-in-java/" class="post-title-link" itemprop="url">对 Java 中继承和实现接口的理解</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-04-10 12:01:28" itemprop="dateCreated datePublished" datetime="2021-04-10T12:01:28+08:00">2021-04-10</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-04-16 17:16:30" itemprop="dateModified" datetime="2021-04-16T17:16:30+08:00">2021-04-16</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>通常大家比较的都是抽象类和接口的异同，而我这里写的是继承而不是抽象类，是因为我这里的比较对象是 “实现接口” 而不是接口这个概念。</p>
-<p>在我看来，继承和实现接口的主要区别在于：状态。具体点儿就是父类的字段。</p>
-<p>继承有状态的传递，而实现接口没有。</p>
-<p>这里就有些像微服务里的 “无状态” 的说法了。</p>
-<p>所以什么时候用继承呢？</p>
-<ol>
-<li>接口的拓展，接口继承接口，这个是语法限制</li>
-<li>有状态字段，不用继承没法</li>
-</ol>
-<p>其他情况下，慎用继承。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://lixi.fun/2021/04/10/why-32-bit-can-only-manage-4G-memory-at-most/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -993,6 +925,80 @@
 <p>$= 2^{32 – 10 – 10 – 10} GB= 2^2 GB= 4 GB$</p>
 <p>没有上面的解释，理解起来确实没头没脑的。</p>
 <p>这也就解释了，bool 变量明明只要 1 bit 就可以表示了，但在一般编程语言里却需要 1 byte 的存储空间，因为一个内存地址指向的最小寻址单位是 1 byte。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://lixi.fun/2021/04/10/understanding-of-inheritance-and-implementation-interface-in-java/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/lixifun-logo.png">
+      <meta itemprop="name" content="lixifun">
+      <meta itemprop="description" content="做个有趣的人 | FUN | 自强 笃实 求源 创新">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LIXI.FUN">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/04/10/understanding-of-inheritance-and-implementation-interface-in-java/" class="post-title-link" itemprop="url">对 Java 中继承和实现接口的理解</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-04-10 12:01:28" itemprop="dateCreated datePublished" datetime="2021-04-10T12:01:28+08:00">2021-04-10</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-04-16 17:16:30" itemprop="dateModified" datetime="2021-04-16T17:16:30+08:00">2021-04-16</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>通常大家比较的都是抽象类和接口的异同，而我这里写的是继承而不是抽象类，是因为我这里的比较对象是 “实现接口” 而不是接口这个概念。</p>
+<p>在我看来，继承和实现接口的主要区别在于：状态。具体点儿就是父类的字段。</p>
+<p>继承有状态的传递，而实现接口没有。</p>
+<p>这里就有些像微服务里的 “无状态” 的说法了。</p>
+<p>所以什么时候用继承呢？</p>
+<ol>
+<li>接口的拓展，接口继承接口，这个是语法限制</li>
+<li>有状态字段，不用继承没法</li>
+</ol>
+<p>其他情况下，慎用继承。</p>
 
       
     </div>
