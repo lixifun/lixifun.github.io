@@ -756,6 +756,78 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://lixi.fun/2021/04/16/why-double-check-null-singleton-need-volatile/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/lixifun-logo.png">
+      <meta itemprop="name" content="lixifun">
+      <meta itemprop="description" content="做个有趣的人 | FUN | 自强 笃实 求源 创新">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LIXI.FUN">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/04/16/why-double-check-null-singleton-need-volatile/" class="post-title-link" itemprop="url">为什么 double-check null 的单例需要 volatile?</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-04-16 10:04:15" itemprop="dateCreated datePublished" datetime="2021-04-16T10:04:15+08:00">2021-04-16</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-05-30 10:45:02" itemprop="dateModified" datetime="2021-05-30T10:45:02+08:00">2021-05-30</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <ol>
+<li><code>new</code> 是个多指令的非原子操作</li>
+<li>使用了 <code>synchronized</code> 包裹的块代码相对于其他线程来说的 最终结果 是有序确定的，但在线程内部是否存在指令重排（无序）是不确定的</li>
+<li>第一个 <code>if</code> 并未在 <code>synchronized</code> 里面，所以另一个线程可能拿到一个因 <code>synchronized</code> 块内部的指令重排导致的未完全初始化的对象（先分配地址，后初始化，但外部线程看已经不为 null 了）</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="comment">/*volatile*/</span> Singleton INSTANCE;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 从线程 B 的角度看  INSTANCE 可能已经不为 null 了，但不知道它是否初始化完全</span></span><br><span class="line">        <span class="keyword">if</span> (INSTANCE == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">synchronized</span> (Singleton<span class="class">.<span class="keyword">class</span>) </span>&#123;</span><br><span class="line">                <span class="keyword">if</span> (INSTANCE == <span class="keyword">null</span>) &#123;</span><br><span class="line">                    <span class="comment">// 线程 A 执行到这个地方的时候</span></span><br><span class="line">                    <span class="comment">// 线程 B 可能在第一个 if 那里已经可以看到 INSTANCE 不为 null，但 INSTANCE 可能还只是部分初始化</span></span><br><span class="line">                    INSTANCE = <span class="keyword">new</span> Singleton();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> INSTANCE;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>所以需要 <code>volatile</code> 避免指令重排造成的问题，需要特殊说明下，这里 <code>volatile</code> 的禁止指令重排，并不是禁止 <code>new Singleton()</code> 里的指令重排，而是禁止对 <code>INSTANCE</code> 的读取和写入的整体操作的指令重排，保证在 <code>INSTANCE</code> 初始化完（写操作）以前，不能进行读操作。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://lixi.fun/2021/04/15/understanding-of-ioc/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -934,86 +1006,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://lixi.fun/2021/04/10/why-32-bit-can-only-manage-4G-memory-at-most/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/lixifun-logo.png">
-      <meta itemprop="name" content="lixifun">
-      <meta itemprop="description" content="做个有趣的人 | FUN | 自强 笃实 求源 创新">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="LIXI.FUN">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/04/10/why-32-bit-can-only-manage-4G-memory-at-most/" class="post-title-link" itemprop="url">32位为什么最大只可以管理4G内存</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-04-10 12:01:28" itemprop="dateCreated datePublished" datetime="2021-04-10T12:01:28+08:00">2021-04-10</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-04-16 17:15:22" itemprop="dateModified" datetime="2021-04-16T17:15:22+08:00">2021-04-16</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>在百度上搜索，也许会得到这样的答案：$2^{32} = 4GB$</p>
-<p>可是这个值是怎么得出来的？一个没有单位的数字，得出来一个带单位的值，首先量纲就对不上。</p>
-<p>要回答这个问题，首先需要了解几个 “常识”：</p>
-<ol>
-<li>x86 平台的内存最小寻址单位是 1 字节 (1 byte, 1 B, 8 bit)。</li>
-<li>内存的地址是个数字，这个数字可取值的范围大小* 单位大小 =可管理的内存大小。</li>
-</ol>
-<p>32 位(bit) 每一个 bit 可以取 0 或 1 两个值，所以有 $2 * 2 * 2 … * 2 = 2^{32}$ 种可能取值，这个取值指的是地址这个数字，数字是没有单位的，取值范围就是 $0 到 2^{32} - 1$</p>
-<p>所以，</p>
-<p>$可管理的内存的大小 = 2^{32} * 1 byte = 2^{32} B$</p>
-<p>$= 2^{32} / 1024 KB$</p>
-<p>$= 2^{32} / 1024 / 1024 MB$</p>
-<p>$= 2^{32} / 1024 / 1024 / 1024 GB$</p>
-<p>$= 2^{32 – 10 – 10 – 10} GB= 2^2 GB= 4 GB$</p>
-<p>没有上面的解释，理解起来确实没头没脑的。</p>
-<p>这也就解释了，bool 变量明明只要 1 bit 就可以表示了，但在一般编程语言里却需要 1 byte 的存储空间，因为一个内存地址指向的最小寻址单位是 1 byte。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1085,12 +1077,12 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">23</span>
+          <span class="site-state-item-count">24</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">37</span>
+        <span class="site-state-item-count">39</span>
         <span class="site-state-item-name">标签</span>
       </div>
   </nav>
@@ -1176,61 +1168,6 @@
   
 
   
-      
-
-<script>
-  if (typeof MathJax === 'undefined') {
-    window.MathJax = {
-      loader: {
-          load: ['[tex]/mhchem'],
-        source: {
-          '[tex]/amsCd': '[tex]/amscd',
-          '[tex]/AMScd': '[tex]/amscd'
-        }
-      },
-      tex: {
-        inlineMath: {'[+]': [['$', '$']]},
-          packages: {'[+]': ['mhchem']},
-        tags: 'ams'
-      },
-      options: {
-        renderActions: {
-          findScript: [10, doc => {
-            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
-              const display = !!node.type.match(/; *mode=display/);
-              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
-              const text = document.createTextNode('');
-              node.parentNode.replaceChild(text, node);
-              math.start = {node: text, delim: '', n: 0};
-              math.end = {node: text, delim: '', n: 0};
-              doc.math.push(math);
-            });
-          }, '', false],
-          insertedScript: [200, () => {
-            document.querySelectorAll('mjx-container').forEach(node => {
-              let target = node.parentNode;
-              if (target.nodeName.toLowerCase() === 'li') {
-                target.parentNode.classList.add('has-jax');
-              }
-            });
-          }, '', false]
-        }
-      }
-    };
-    (function () {
-      var script = document.createElement('script');
-      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
-      script.defer = true;
-      document.head.appendChild(script);
-    })();
-  } else {
-    MathJax.startup.document.state(0);
-    MathJax.texReset();
-    MathJax.typeset();
-  }
-</script>
-
-    
 
   
 

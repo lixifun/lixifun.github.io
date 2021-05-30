@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://lixi.fun/2021/04/16/why-double-check-null-singleton-need-volatile/</loc>
+    
+    <lastmod>2021-05-30T02:45:02.694Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://lixi.fun/2021/05/29/javac-parameters/</loc>
     
     <lastmod>2021-05-30T01:35:11.876Z</lastmod>
