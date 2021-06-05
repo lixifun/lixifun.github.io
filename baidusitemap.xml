@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://lixi.fun/2021/06/05/TopK/</loc>
+    <lastmod>2021-06-05</lastmod>
+  </url>
+  <url>
     <loc>https://lixi.fun/2020/07/24/table-driven-with-spring/</loc>
     <lastmod>2021-05-30</lastmod>
   </url>
