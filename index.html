@@ -175,6 +175,100 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://lixi.fun/2021/06/07/and-instead-of-mod/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/lixifun-logo.png">
+      <meta itemprop="name" content="lixifun">
+      <meta itemprop="description" content="做个有趣的人 | FUN | 自强 笃实 求源 创新">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LIXI.FUN">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/06/07/and-instead-of-mod/" class="post-title-link" itemprop="url">与操作代替取模操作</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-06-07 09:53:31 / 修改时间：11:09:36" itemprop="dateCreated datePublished" datetime="2021-06-07T09:53:31+08:00">2021-06-07</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p>$m \bmod a^{k}$ 就是 $m$ 在 $a$ 进制下的低 $k$ 位。</p>
+</blockquote>
+<h2 id="十进制"><a href="#十进制" class="headerlink" title="十进制"></a>十进制</h2><p>$a = 10$</p>
+<p>$1\textcolor{red}{5} \bmod 10 = \textcolor{red}{5}$     </p>
+<p>$1\textcolor{red}{50} \bmod 100 = \textcolor{red}{50}$</p>
+<p>十进制对整百整千的取模操作，对人来说，压根就不用算，直接就能往外报答案，报的不就是 后面那几位么，那其他进制呢？</p>
+<h2 id="其他进制"><a href="#其他进制" class="headerlink" title="其他进制"></a>其他进制</h2><h3 id="四进制"><a href="#四进制" class="headerlink" title="四进制"></a>四进制</h3><p>$a = 4$</p>
+<p>$10\textcolor{red}{1} \bmod 10 = \textcolor{red}{1}$      相当于十进制的 $17 \bmod 4 = 1$</p>
+<p>$2\textcolor{red}{22} \bmod 100 = \textcolor{red}{22}$    相当于十进制的 $22 \bmod 16 = 6$</p>
+<p>可以发现上面的 $1, 22$ 都是可以通过观察直接得到的，就是截断了前面的数的低 $k$ 位</p>
+<h3 id="三进制"><a href="#三进制" class="headerlink" title="三进制"></a>三进制</h3><p>$a = 3$</p>
+<p>$12\textcolor{red}{1} \bmod 10 = \textcolor{red}{1}$     相当于十进制 $16 \bmod 3 = 1$</p>
+<p>$1\textcolor{red}{21} \bmod 100 = \textcolor{red}{21}$   相当于十进制 $16 \bmod 9 = 7$</p>
+<p>可以发现上面的 $1, 21$ 都是可以通过观察直接得到的，就是截断了前面的数的低 $k$ 位</p>
+<h2 id="二进制"><a href="#二进制" class="headerlink" title="二进制"></a>二进制</h2><p>$a = 2$</p>
+<p>$111\textcolor{red}{1} \bmod 10 = \textcolor{red}{1}$      相当于十进制 $15 \bmod 2 = 1$</p>
+<p>$11\textcolor{red}{11} \bmod 100 = \textcolor{red}{11}$    相当于十进制 $15 \bmod 4 = 3$</p>
+<p>通过观察可以发现，在 $a$ 进制下，$m \bmod a^{k}$ 就是截断了前面的数在 $a$ 进制下的低 $k$ 位。</p>
+<p>在二进制中，恰好有截断一个数的操作 <code>&amp;</code> 操作</p>
+<p><code>m &amp; ((1 &lt;&lt; k) - 1)</code> 即为截断取得 $m$ 后 $k$ 位</p>
+<p>即 <code>m % 2^k = m &amp; ((1 &lt;&lt; k) - 1)</code></p>
+<p>令 <code>n = 2^k</code>，则</p>
+<p><code>m % n = m &amp; (n - 1)</code></p>
+<p>可得出结论，当 n 为 2 的幂的时候 <code>m % n = m &amp; (n - 1)</code></p>
+<h2 id="转到-HashMap"><a href="#转到-HashMap" class="headerlink" title="转到 HashMap"></a>转到 HashMap</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * The default initial capacity - MUST be a power of two.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> DEFAULT_INITIAL_CAPACITY = <span class="number">1</span> &lt;&lt; <span class="number">4</span>; <span class="comment">// aka 16</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * The maximum capacity, used if a higher value is implicitly specified</span></span><br><span class="line"><span class="comment"> * by either of the constructors with arguments.</span></span><br><span class="line"><span class="comment"> * MUST be a power of two &lt;= 1&lt;&lt;30.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> MAXIMUM_CAPACITY = <span class="number">1</span> &lt;&lt; <span class="number">30</span>;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>MUST be a power of two</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">final</span> V <span class="title">putVal</span><span class="params">(<span class="keyword">int</span> hash, K key, V value, <span class="keyword">boolean</span> onlyIfAbsent,</span></span></span><br><span class="line"><span class="function"><span class="params">                  <span class="keyword">boolean</span> evict)</span> </span>&#123;</span><br><span class="line">       Node&lt;K,V&gt;[] tab; Node&lt;K,V&gt; p; <span class="keyword">int</span> n, i;</span><br><span class="line">       <span class="keyword">if</span> ((tab = table) == <span class="keyword">null</span> || (n = tab.length) == <span class="number">0</span>)</span><br><span class="line">           n = (tab = resize()).length;</span><br><span class="line">       </span><br><span class="line">       <span class="comment">// 这里的 (n - 1) &amp; hash = hash % n</span></span><br><span class="line">       <span class="comment">// 因为 n 是 2 的幂</span></span><br><span class="line">       <span class="keyword">if</span> ((p = tab[i = (n - <span class="number">1</span>) &amp; hash]) == <span class="keyword">null</span>)</span><br><span class="line">           tab[i] = newNode(hash, key, value, <span class="keyword">null</span>);</span><br><span class="line">       <span class="keyword">else</span> &#123;</span><br><span class="line">           ...</span><br><span class="line">       &#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>tab[i = (n - 1) &amp; hash]</code></p>
+<p>n 就是上面 MUST be a power of two 的值，所以 <code>hash % n</code> 的操作可以被优化为 <code>(n - 1) &amp; hash</code></p>
+<p>位操作比除，取余的操作需要的时钟周期要少的多。</p>
+<p>通过上面，只是可以知道这种优化方式，但仍不知是因为可以这么优化才设定 n 为 2 的幂，还是因为其他的因素设定 n 为 2 的幂，然后又可以采用这种优化，历史的事情，不好说。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://lixi.fun/2021/06/05/TopK/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -889,114 +983,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://lixi.fun/2021/04/15/understanding-of-ioc/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/lixifun-logo.png">
-      <meta itemprop="name" content="lixifun">
-      <meta itemprop="description" content="做个有趣的人 | FUN | 自强 笃实 求源 创新">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="LIXI.FUN">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/04/15/understanding-of-ioc/" class="post-title-link" itemprop="url">对 ioc 的理解</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-04-15 18:11:19" itemprop="dateCreated datePublished" datetime="2021-04-15T18:11:19+08:00">2021-04-15</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-30 09:16:45" itemprop="dateModified" datetime="2021-05-30T09:16:45+08:00">2021-05-30</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>IOC 和 DI 先认为是一回事儿，以理解其中的思想为主。</p>
-<blockquote>
-<p>让调用类对某一接口实现类的依赖关系由第三方（容器或者协作类）注入，以移除调用类对某一接口实现类的依赖。</p>
-</blockquote>
-<p>IOC 的目的是为了解耦，具体是怎么解耦的，下面说。</p>
-<p>IOC 具体实现可以总结为两点：</p>
-<ol>
-<li>类的成员变量用接口类型(父类)声明</li>
-<li>类实例交给第三方管理</li>
-</ol>
-<h2 id="1-类的成员变量用接口类型-父类-声明"><a href="#1-类的成员变量用接口类型-父类-声明" class="headerlink" title="1. 类的成员变量用接口类型(父类)声明"></a>1. 类的成员变量用接口类型(父类)声明</h2><blockquote>
-<p>《Effective Java》 第 5 条：优先考虑依赖注入来引用资源</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SpellChecker</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 首先用 Lexicon 这是个接口或者父类</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> Lexicon dict;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 其次有构造器来 注入 一个实例</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">SpellChecker</span><span class="params">(Lexicon dict)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.dict = dict;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isValid</span><span class="params">(String word)</span> </span>&#123;...&#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;String&gt; <span class="title">suggestions</span><span class="params">(String type)</span> </span>&#123;...&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>直接看上面的代码，可能会想，平时写的代码不就是这个样子吗？这有啥，跟依赖注入有啥关系？</p>
-<p>这就是依赖注入。很多人已经使用多年，只是不知道它的名字而已。</p>
-<p>没有对比就没有伤害，看下下面的代码，就能理解了</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SpellChecker</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> EnglishLexicon dict = <span class="keyword">new</span> EnglishLexicon();</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">SpellChecker</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isValid</span><span class="params">(String word)</span> </span>&#123;...&#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;String&gt; <span class="title">suggestions</span><span class="params">(String type)</span> </span>&#123;...&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>现在没有人会写这种代码了，大家已经习惯了上面的。</p>
-<p>对比下面的代码，依赖注入的例子里，<code>SpellChecker</code> 只需要认识 <code>Lexicon</code> 这个接口，而不需要认识像 <code>EnglishLexicon</code> 或者 <code>ChineseLexicon</code> 这些具体实现类，就实现了 <code>SpellChecker</code> 与具体实现类的解耦，可复用性也更强，当换实现的时候，只需要在构造方法里，填充不同的实现类的实例即可。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// SpellChecker englishSpellChecker = new SpellChecker(new EnglishLexicon());</span></span><br><span class="line">        <span class="comment">// 这里理解为更换国家，需要新的实现类，暂不理解为多个实现类共存</span></span><br><span class="line">        SpellChecker chineseSpellChecker = <span class="keyword">new</span> SpellChecker(<span class="keyword">new</span> ChineseLexicon());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="2-类实例交给第三方管理"><a href="#2-类实例交给第三方管理" class="headerlink" title="2. 类实例交给第三方管理"></a>2. 类实例交给第三方管理</h2><p>在上面说注入实例的时候，用了这么一段代码。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// SpellChecker englishSpellChecker = new SpellChecker(new EnglishLexicon());</span></span><br><span class="line">        <span class="comment">// 这里理解为更换国家，需要新的实现类，暂不理解为多个实现类共存</span></span><br><span class="line">        SpellChecker chineseSpellChecker = <span class="keyword">new</span> SpellChecker(<span class="keyword">new</span> ChineseLexicon());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>这里其实就隐含了一个第三方(协作类): <code>main 函数</code>，它管理了 <code>new EnglishLexicon()</code> 和 <code>new ChineseLexicon()</code> 这两个实例，这种方式被称为 <code>手动依赖注入</code>。</p>
-<p>关于网上说的纠结 <code>这还不是自己 new 的么？</code> 这个问题，现在应该有一个答案了吧，这是 <code>手动依赖注入</code>，其中的 <code>手动</code> 就是在自己 <code>new</code>。</p>
-<p>别急，我知道你想说 <code>Spring</code> 这种框架，也可能还想说 <code>工厂模式</code> 创建 <code>bean</code> 之类的东西。</p>
-<p>有 <code>手动</code> 那就得有 <code>自动</code> 对吧，<code>Spring</code>, <code>Guice</code> 这类 IOC 容器就是 <code>自动依赖注入</code> 要不 <code>Autowired</code> 咋个会有 <code>Auto</code> 呢？</p>
-<p><code>new</code> 这个动作，是可以自己一个一个去 <code>new</code>，远古时期的猿可能也就是这么干的，但慢慢聪明的猿发现，<code>new</code> 这个动作，实在只是个机械重复性动作，枯燥无聊，还业务无关，而计算机最擅长做的事情就是 <code>重复</code>，所以就把这些工作交给了框架来完成了。</p>
-<p>那框架里又是怎么完成呢？无非就是 <code>反射 + 配置文件</code>，来实现 <code>new</code> 这个动作，当然说起来简单，做起来还是有各种困难的，什么循环依赖，引用未初始化完 bean 之类的问题也就接踵而至，具体实现细节，暂且不表，这里只是说明，<code>自动</code> 是怎么来的。</p>
-<p><code>依赖注入框架</code> 就是 <code>自动依赖注入</code> 的第三方了，总管实例的生成，存储，注入等等。容器本体是一个或者多个 <code>Map {beanName: bean 实例}</code>。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SpellChecker</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> Lexicon dict;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">SpellChecker</span><span class="params">(Lexicon dict)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.dict = dict;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isValid</span><span class="params">(String word)</span> </span>&#123;...&#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;String&gt; <span class="title">suggestions</span><span class="params">(String type)</span> </span>&#123;...&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LexiconConfig</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Lexicon <span class="title">lexicon</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 曾经是修改 xml 里 id="lexicon" 的实现类</span></span><br><span class="line">        <span class="comment">// 现在是修改 new 后面的这个类</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> EnglishLexicon();    </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>上面的代码就是现代使用 <code>Spring</code> 的时候的代码了，熟悉吧，当需要更换字典的时候就 <code>return new ChineseLexicon()</code>;</p>
-<p>使用配置文件的方式更能体现自动依赖注入的强大，也更有利于理解。</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"lexicon"</span> <span class="attr">class</span>=<span class="string">"com.demo.lexicon.EnglishLexicon"</span>&gt;</span><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>当需要修改实现的时候，只需要新建一个类，把 id 指过去就可以了，使用者甚至无需重新编译代码，只需要编译新增的这个类就可以了。</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"lexicon"</span> <span class="attr">class</span>=<span class="string">"com.demo.lexicon.ChineseLexicon"</span>&gt;</span><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>如果都是本来就有的类，根据业务调整，更换实现类，只需要改了配置，重启应用就可以了。</p>
-<p>对于不知道 Spring 通过配置文件是怎么实例化 bean 的，一个简单示例</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 从 xml 中读到 "lexicon" 和 "com.demo.lexicon.ChineseLexicon" 两个字符串</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// ioc 本体的一部分</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">final</span> Map&lt;String, Object&gt; singletonObjects = <span class="keyword">new</span> ConcurrentHashMap&lt;&gt;(<span class="number">256</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 简单示例，不是真实实现</span></span><br><span class="line">singletonObjects.put(<span class="string">"lexicon"</span>, Class.forName(<span class="string">"com.demo.lexicon.ChineseLexicon"</span>).newInstance());</span><br><span class="line"></span><br><span class="line"><span class="comment">// @Autowired 就是在实例化 SpellChecker 的时候从 singletonObjects 中 getBean("lexicon") 来设置 dict 字段的。</span></span><br><span class="line"><span class="comment">// 这里边儿什么万一 lexicon 还没实例化完怎么办之类的问题，就需要自己去研读 Spring 的代码了。</span></span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1068,12 +1054,12 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">26</span>
+          <span class="site-state-item-count">27</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">42</span>
+        <span class="site-state-item-count">44</span>
         <span class="site-state-item-name">标签</span>
       </div>
   </nav>
@@ -1159,6 +1145,61 @@
   
 
   
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+          load: ['[tex]/mhchem'],
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+          packages: {'[+]': ['mhchem']},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 
