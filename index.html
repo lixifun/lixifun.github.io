@@ -200,7 +200,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-06-11 20:03:27 / 修改时间：21:13:36" itemprop="dateCreated datePublished" datetime="2021-06-11T20:03:27+08:00">2021-06-11</time>
+              <time title="创建时间：2021-06-11 20:03:27 / 修改时间：21:17:04" itemprop="dateCreated datePublished" datetime="2021-06-11T20:03:27+08:00">2021-06-11</time>
             </span>
 
           
@@ -218,7 +218,7 @@
 <p>就像下面的这样</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 有意写的比较繁琐，来突出 xx 效果，但其实今天见了更繁琐的 */</span></span><br><span class="line">b.setF_1(a.getF1() == <span class="keyword">null</span> ? <span class="number">1</span> : a.getF1().shortValue());</span><br><span class="line">b.setF2(a.getF2() == <span class="keyword">null</span> || <span class="string">""</span>.equals(a.getF2().trim()) ? <span class="string">"f2"</span> : a.getF2().trim());</span><br><span class="line">b.setF_3(a.getF3() == <span class="keyword">null</span> ? <span class="number">1</span> : a.getF3().shortValue());</span><br><span class="line">b.setF4(a.getF4());</span><br></pre></td></tr></table></figure>
 
-<p>如果字段名一样，直接可以用 <code>BeanUtil.copyProperties</code>，如果只是驼峰转下划线，下划线转驼峰之类的比较有规律的也还好说，配置下转 map 的规则，转了 map 再转回来就可以了。</p>
+<p>如果字段名类型都一致，只是个数有差异，直接可以用 <code>BeanUtil.copyProperties</code>，如果只是驼峰转下划线，下划线转驼峰之类的比较有规律的也还好说，配置下转 map 的规则，转了 map 再转回来就可以了。</p>
 <p>遇到不仅字段名不一样，没有规则，类型还不一样的，那真是看着前人的代码也难受，自己再往里边儿填的时候也难受。得益于 Java 8 以后的 <code>@nFunctionalInterface</code>，这个功能可以实现的比较 <code>好看</code> 些。</p>
 <p>首先要明确一件事情 get 方法其实就一种 <code>Supplier</code>，set 方法是一种 <code>Consumer</code>，那事情就简单了些。</p>
 <p>基本思想就是把 get/set 方法当参数传进去，在函数内做转换就可以了。</p>
