@@ -175,6 +175,108 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://lixi.fun/2021/04/16/what-problem-does-IO-multiplexing-solve/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/lixifun-logo.png">
+      <meta itemprop="name" content="lixifun">
+      <meta itemprop="description" content="做个有趣的人 | FUN | 自强 笃实 求源 创新">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LIXI.FUN">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/04/16/what-problem-does-IO-multiplexing-solve/" class="post-title-link" itemprop="url">IO 多路复用解决的啥问题</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-04-16 18:11:19" itemprop="dateCreated datePublished" datetime="2021-04-16T18:11:19+08:00">2021-04-16</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-04-17 10:23:29" itemprop="dateModified" datetime="2021-04-17T10:23:29+08:00">2021-04-17</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>首先抛出一个问题：C10K 问题是个什么问题？</p>
+<p>从整个系统的服务能力来看 C10K 首先是一个关于连接，尤其是长连接的问题，只是高并发的一个前置条件，即一个进程支持大量连接的问题，接入连接之后的是否能够提供服务是另一个问题了。</p>
+<p>IO 多路复用，解决的也就是这个前置条件，关于一个进程维持大量连接这件事儿。</p>
+<p>对于近几年从业的小伙伴来说，不知道会不会有我一样的疑问，为什么说 BIO 的时候，就提到一个连接一个线程，他们就不会用线程池吗？</p>
+<p>首先要分两种线程：I/O 线程 和 工作线程，对于 BIO 来说，I/O 线程同时也是工作线程，它本身的模型会阻塞住 I/O 线程，整体系统服务能力受限于线程的数量。</p>
+<p>如果用线程池呢？当 BIO 用于短连接的时候，可以避免创建大量线程，避免系统资源耗尽，对于长连接来说，则只能服务线程池数量的连接数，一个连接一个线程说的是一个连接一个 I/O 线程。</p>
+<p>同时，有些现在我们习以为常的东西，在那个年代是不存在的，比如我们现在随便一个进程都可以维持成千上百个连接的能力，硬件性能也上去了，就是一个连接一个线程也不是不行，但是在那个年代，抱歉，不可以，一个进程能打开的连接数量就是受限制的，硬件性能也不行，前提条件就给卡死了。</p>
+<p>预备知识：</p>
+<ul>
+<li>一个 socket 连接会对应一个文件描述符 fd</li>
+<li>一个进程能打开持有的 fd 的数量是随着技术发展(历史进程)不断增加的</li>
+</ul>
+<h2 id="select-和-poll-出现之前"><a href="#select-和-poll-出现之前" class="headerlink" title="select 和 poll 出现之前"></a>select 和 poll 出现之前</h2><p>在 select 和 poll 出现之前，一个进程能打开的连接的数量 (fd) 是非常少的（只有几十个），也就是说一个进程只能支撑几十个连接，大量连接，就要建立大量进程，这时候可以多进程吗？是可以的，但是同时能处理的最大连接数量依旧不多，因为主要限制在一个进程就只能维持那很少的连接数（内核不允许多）。整体系统容量，连 C10K 的前提条件：大量连接，都满足不了。</p>
+<p>另：在那个年代，有没有线程还是另外一回事儿。</p>
+<h2 id="select-和-poll-出现之后"><a href="#select-和-poll-出现之后" class="headerlink" title="select 和 poll 出现之后"></a>select 和 poll 出现之后</h2><p>select 和 poll 几乎同时出现，可以理解为一个东西的两种不同实现，具体怎么实现的，暂不表，都是内核提供的特性，我吹的再牛逼，也只是个调 API 的。</p>
+<p>两个特点：</p>
+<ol>
+<li>单进程单线程维持大量连接的能力</li>
+<li>不阻塞 I/O 线程，意味着只要有一个 I/O 线程就可以了</li>
+</ol>
+<p>select 一次最大支持 1024 个连接（默认，不建议改，改会有不可预知的行为），支持的 fd 号限制在 0~1023。</p>
+<p>poll 则几乎没有限制连接数量。</p>
+<p>那 select 和 poll 有什么问题呢？</p>
+<ol>
+<li>用户态和内核态数据拷贝问题</li>
+<li>每次都要遍历检查所有的 fd (遍历所有的 fd 拿到有消息的连接去处理)</li>
+</ol>
+<p>当连接数量非常大的时候，它自身就会有严重的性能问题。</p>
+<p>在这个时期，可以单进程大量连接并且不阻塞 I/O 线程，一般就是一个 I/O 线程和一组工作线程(进程)去提供服务就可以了，可以尝试解决 C10K 问题了，前置条件能够满足了。</p>
+<h2 id="epoll-出现"><a href="#epoll-出现" class="headerlink" title="epoll 出现"></a>epoll 出现</h2><p>epoll 是作为 poll 的改良出现的，解决了上面说的 select 和 poll 在保持大量连接时自身的性能问题，主要改良就是不再遍历所有 fd，而是查表。</p>
+<p>ps：当大量忙连接的时候 select 的性能表现可能比 epoll 要好。</p>
+<p>现代程序，Linux 平台几乎都是封装了 epoll 的上层解决方案。</p>
+<p>Python 的 tornado，Java 的 netty，还有 Nginx，Redis 等等都是在 epoll 的基础上进行的封装，但这些程序就全靠 epoll 了么？不是的，上面说了，IO 多路复用只是解决了这其中的连接的问题，后面的具体服务，还要靠大牛们的模块划分，合理抽象搞出简单好用的 API 来提供给我们用。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>IO 多路复用是操作系统提供用来解决单进程单线程持有大量连接和不阻塞 I/O 线程的。</p>
+<p>不要纠结于同步，异步，阻塞，非阻塞这些名词，真想了解细节，就去看 APUE。</p>
+<p>相对于同步还是异步，更关心，阻塞还是非阻塞，只要不阻塞，一切都好说。</p>
+<p>按我理解这些整体都可以理解为 Selector 模型，而 select，poll，epoll 都是对于这一方案的填坑型实现。</p>
+<p>现在最好的解决方案，应该是 <code>epoll + 协程</code> 的实现，一个 I/O 线程对应 n 多个协程。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://lixi.fun/2021/04/16/why-double-check-null-singleton-need-volatile/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -886,88 +988,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://lixi.fun/2020/07/24/table-driven-with-enum/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/lixifun-logo.png">
-      <meta itemprop="name" content="lixifun">
-      <meta itemprop="description" content="做个有趣的人 | FUN | 自强 笃实 求源 创新">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="LIXI.FUN">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/07/24/table-driven-with-enum/" class="post-title-link" itemprop="url">枚举 & 表驱动</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-07-24 11:42:00" itemprop="dateCreated datePublished" datetime="2020-07-24T11:42:00+08:00">2020-07-24</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-27 15:01:31" itemprop="dateModified" datetime="2021-05-27T15:01:31+08:00">2021-05-27</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="初级版本"><a href="#初级版本" class="headerlink" title="初级版本"></a>初级版本</h2><p>先看一段代码</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * if/else 版本</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">trafficIfElseVersion</span><span class="params">(String trafficLight)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="string">"红色"</span>.equals(trafficLight)) &#123;</span><br><span class="line">        System.out.println(<span class="string">"现在是红灯，请停下"</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="string">"绿色"</span>.equals(trafficLight)) &#123;</span><br><span class="line">        System.out.println(<span class="string">"现在是绿灯，请通行"</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="string">"黄灯"</span>.equals(trafficLight)) &#123;</span><br><span class="line">        System.out.println(<span class="string">"现在是黄灯，请注意"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * switch 版本</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">trafficSwitchVersion</span><span class="params">(String trafficLight)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">switch</span> (trafficLight) &#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">"红色"</span>:</span><br><span class="line">            System.out.println(<span class="string">"现在是红灯，请停下"</span>);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">"绿色"</span>:</span><br><span class="line">            System.out.println(<span class="string">"现在是绿灯，请通行"</span>);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">"黄色"</span>:</span><br><span class="line">            System.out.println(<span class="string">"现在是黄灯，请注意"</span>);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">default</span>:</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>上面两个版本有本质性区别吗？没有，对每个颜色的灯做一些响应，条件要写全</p>
-<h2 id="啰嗦进化"><a href="#啰嗦进化" class="headerlink" title="啰嗦进化"></a>啰嗦进化</h2><p>再来看一个版本</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// map 里封装了条件对应的动作</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Map&lt;String, Consumer&gt; TRAFFIC_LIGHT_TO_ACTION = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line"></span><br><span class="line"><span class="keyword">static</span> &#123;</span><br><span class="line">    TRAFFIC_LIGHT_TO_ACTION.put(<span class="string">"红色"</span>, o -&gt; System.out.println(<span class="string">"现在是红灯，请停下"</span>));</span><br><span class="line">    TRAFFIC_LIGHT_TO_ACTION.put(<span class="string">"绿色"</span>, o -&gt; System.out.println(<span class="string">"现在是绿灯，请通行"</span>));</span><br><span class="line">    TRAFFIC_LIGHT_TO_ACTION.put(<span class="string">"黄色"</span>, o -&gt; System.out.println(<span class="string">"现在是黄灯，请注意"</span>));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">trafficMapVersion</span><span class="params">(String trafficLight)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 不考虑非法值，只说明方向</span></span><br><span class="line">    TRAFFIC_LIGHT_TO_ACTION.get(trafficLight).accept(<span class="keyword">null</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>这个版本里简单动作（方法）可以这么搞，但还是要硬编码进去，而且对于 trafficLight 这样 String 类型，一直出现在代码中，属于魔法值，复杂的方法可以把各种灯抽象出来类，实例化后作为 value 添加进去</p>
-<h2 id="再进化"><a href="#再进化" class="headerlink" title="再进化"></a>再进化</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> lombok.AllArgsConstructor;</span><br><span class="line"><span class="keyword">import</span> lombok.Getter;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Arrays;</span><br><span class="line"><span class="keyword">import</span> java.util.Map;</span><br><span class="line"><span class="keyword">import</span> java.util.Optional;</span><br><span class="line"><span class="keyword">import</span> java.util.stream.Collectors;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Getter</span></span><br><span class="line"><span class="meta">@AllArgsConstructor</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">enum</span> TrafficLight &#123;</span><br><span class="line"></span><br><span class="line">    RED(<span class="string">"红灯"</span>) &#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">action</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            System.out.println(<span class="string">"现在是红灯，请停下"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    GREEN(<span class="string">"绿灯"</span>) &#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">action</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            System.out.println(<span class="string">"现在是绿灯，请通行"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    YELLOW(<span class="string">"黄灯"</span>) &#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">action</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            System.out.println(<span class="string">"现在是黄灯，请注意"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String color;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 用于存储 color: Enum</span></span><br><span class="line"><span class="comment">     * 程序构建，不需要手动添加了</span></span><br><span class="line"><span class="comment">     * &lt;p&gt;</span></span><br><span class="line"><span class="comment">     * 在上一个的手动 map 里也可以把 各种灯抽象出类，实例化后和颜色对应，手动对应也可，反射扫描添加也可</span></span><br><span class="line"><span class="comment">     * 枚举提供了这种功能就直接用了</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Map&lt;String, TrafficLight&gt; COLOR_TO_ENUM =</span><br><span class="line">            Arrays.stream(TrafficLight.values())</span><br><span class="line">                    .collect(Collectors.toMap(TrafficLight::getColor, e -&gt; e));</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 提供通过 color 字符拿到实例的方法</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * 这里使用了 Optional 语义上表示如果 code 不存在(非法值)，起一个提示作用</span></span><br><span class="line"><span class="comment">     * </span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> color 颜色</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> 对应的实例</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Optional&lt;TrafficLight&gt; <span class="title">getEnumByColorString</span><span class="params">(String color)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> Optional.ofNullable(COLOR_TO_ENUM.get(color));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 抽象方法</span></span><br><span class="line"><span class="comment">     * 复杂的参数也可以搞</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">action</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 使用，没有了 if/else 和 switch 主逻辑更加清晰</span></span><br><span class="line">        <span class="comment">// 实际的条件转移到了 map 里的状态</span></span><br><span class="line">        String color = <span class="string">"红色"</span>;</span><br><span class="line">        Optional&lt;TrafficLight&gt; trafficLightOpt = getEnumByColorString(color);</span><br><span class="line">        <span class="keyword">if</span> (trafficLightOpt.isPresent()) &#123;</span><br><span class="line">            <span class="comment">// 这里体现了多态，具体实例去调用自己的实现</span></span><br><span class="line">            trafficLightOpt.get().action();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>总结：</p>
-<ul>
-<li>构建表 (MAP) 代替条件判断</li>
-<li>抽象方法，多态调用具体实现</li>
-<li>虽然代码没有少写，但是主逻辑确实清晰了许多，不同实例的不同实现封装到内部，清爽。</li>
-</ul>
-<p>姊妹篇 <a href="/2020/07/23/enum-commonly-used-java/">枚举的常用姿势 (JAVA 为例)</a></p>
-<p>枚举 &amp; 表驱动的方式只适用于一些比较固定的情况，如果要结合 <code>Spring</code> 需要注入 <code>service</code> 和 <code>dao</code> 这种对象的时候，就不太合适了，这个时候该怎么办呢？<br>参见 <a href="/2020/07/24/table-driven-with-spring/">Spring &amp; 表驱动</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1039,7 +1059,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">28</span>
+          <span class="site-state-item-count">29</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

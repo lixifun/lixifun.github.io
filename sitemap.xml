@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://lixi.fun/2021/06/11/multi-modules-spring-boot-repackage-issue/</loc>
+    
+    <lastmod>2021-06-11T05:57:04.695Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://lixi.fun/2021/06/09/modify-toString-template-gen-jna-getFieldOrder/</loc>
     
     <lastmod>2021-06-09T08:19:47.779Z</lastmod>
