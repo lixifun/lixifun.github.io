@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://lixi.fun/2021/06/07/and-instead-of-mod/</loc>
+    <lastmod>2021-06-11</lastmod>
+  </url>
+  <url>
     <loc>https://lixi.fun/2021/06/09/modify-toString-template-gen-jna-getFieldOrder/</loc>
     <lastmod>2021-06-11</lastmod>
   </url>
   <url>
     <loc>https://lixi.fun/2021/06/11/multi-modules-spring-boot-repackage-issue/</loc>
     <lastmod>2021-06-11</lastmod>
-  </url>
-  <url>
-    <loc>https://lixi.fun/2021/06/07/and-instead-of-mod/</loc>
-    <lastmod>2021-06-07</lastmod>
   </url>
   <url>
     <loc>https://lixi.fun/2021/06/05/TopK/</loc>
