@@ -175,6 +175,78 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://lixi.fun/2021/06/11/field-to-field-get-set/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/lixifun-logo.png">
+      <meta itemprop="name" content="lixifun">
+      <meta itemprop="description" content="做个有趣的人 | FUN | 自强 笃实 求源 创新">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LIXI.FUN">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/06/11/field-to-field-get-set/" class="post-title-link" itemprop="url">字段对字段的 Get/Set</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-06-11 20:03:27 / 修改时间：20:54:59" itemprop="dateCreated datePublished" datetime="2021-06-11T20:03:27+08:00">2021-06-11</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>开发中，肯定遇到过前人留下的，某个类，需要对另外一个类，一个字段一个字段的 get/set</p>
+<p>就像下面的这样</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">/* 有意写的比较繁琐，来突出 xx 效果，但其实今天见了更繁琐的 */</span></span><br><span class="line">b.setF_1(a.getF1() == <span class="keyword">null</span> ? <span class="number">1</span> : a.getF1().shortValue());</span><br><span class="line">b.setF2(a.getF2() == <span class="keyword">null</span> || <span class="string">""</span>.equals(a.getF2().trim()) ? <span class="string">"f2"</span> : a.getF2().trim());</span><br><span class="line">b.setF_3(a.getF3() == <span class="keyword">null</span> ? <span class="number">1</span> : a.getF3().shortValue());</span><br><span class="line">b.setF4(a.getF4());</span><br></pre></td></tr></table></figure>
+
+<p>如果字段名一样，直接可以用 <code>BeanUtil.copyProperties</code>，如果只是驼峰转下划线，下划线转驼峰之类的比较有规律的也还好说，配置下转 map 的规则，转了 map 再转回来就可以了。</p>
+<p>遇到不仅字段名不一样，没有规则，类型还不一样的，那真是看着前人的代码也难受，自己再往里边儿填的时候也难受。得益于 Java 8 以后的 <code>@nFunctionalInterface</code>，这个功能可以实现的比较 <code>好看</code> 些。</p>
+<p>首先要明确一件事情 get 方法其实就一种 <code>Supplier</code>，set 方法是一种 <code>Consumer</code>，那事情就简单了些。</p>
+<p>基本思想就是把 get/set 方法当参数传进去，在函数内做转换就可以了。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 可以根据需要裁剪方法的参数更改设置为 defaultV 的条件 */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> &lt;A, B&gt; <span class="function"><span class="keyword">void</span> <span class="title">set</span><span class="params">(Consumer&lt;A&gt; setMethod,</span></span></span><br><span class="line"><span class="function"><span class="params">                              Supplier&lt;B&gt; getMethod,</span></span></span><br><span class="line"><span class="function"><span class="params">                              A defaultV,</span></span></span><br><span class="line"><span class="function"><span class="params">                              Predicate&lt;B&gt; defaultValueCondition,</span></span></span><br><span class="line"><span class="function"><span class="params">                              Function&lt;B, A&gt; convertFunction)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 函数体的粗实现</span></span><br><span class="line">    B v = getMethod.get();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (v == <span class="keyword">null</span> || (defaultValueCondition != <span class="keyword">null</span> &amp;&amp; defaultValueCondition.test(v))) &#123;</span><br><span class="line">        setMethod.accept(defaultV);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (convertFunction == <span class="keyword">null</span>) &#123;</span><br><span class="line">            setMethod.accept((A) v);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            setMethod.accept(convertFunction.apply(v));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> &lt;A, B&gt; <span class="function"><span class="keyword">void</span> <span class="title">set</span><span class="params">(Consumer&lt;A&gt; setMethod,</span></span></span><br><span class="line"><span class="function"><span class="params">                              Supplier&lt;B&gt; getMethod,</span></span></span><br><span class="line"><span class="function"><span class="params">                              A defaultV,</span></span></span><br><span class="line"><span class="function"><span class="params">                              Function&lt;B, A&gt; convertFunction)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> &lt;A, B&gt; <span class="function"><span class="keyword">void</span> <span class="title">set</span><span class="params">(Consumer&lt;A&gt; setMethod,</span></span></span><br><span class="line"><span class="function"><span class="params">                              Supplier&lt;B&gt; getMethod,</span></span></span><br><span class="line"><span class="function"><span class="params">                              A defaultV,</span></span></span><br><span class="line"><span class="function"><span class="params">                              Predicate&lt;B&gt; defaultValueCondition)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> &lt;A, B&gt; <span class="function"><span class="keyword">void</span> <span class="title">set</span><span class="params">(Consumer&lt;A&gt; setMethod,</span></span></span><br><span class="line"><span class="function"><span class="params">                              Supplier&lt;B&gt; getMethod,</span></span></span><br><span class="line"><span class="function"><span class="params">                              A defaultV)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> &lt;A, B&gt; <span class="function"><span class="keyword">void</span> <span class="title">set</span><span class="params">(Consumer&lt;A&gt; setMethod,</span></span></span><br><span class="line"><span class="function"><span class="params">                              Supplier&lt;B&gt; getMethod)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>最终效果</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">/*原有代码*/</span></span><br><span class="line">b.setF_1(a.getF1() == <span class="keyword">null</span> ? <span class="number">1</span> : a.getF1().shortValue());</span><br><span class="line">b.setF2(a.getF2() == <span class="keyword">null</span> || <span class="string">""</span>.equals(a.getF2().trim()) ? <span class="string">"f2"</span> : a.getF2().trim());</span><br><span class="line">b.setF_3(a.getF3() == <span class="keyword">null</span> ? <span class="number">1</span> : a.getF3().shortValue());</span><br><span class="line">b.setF4(a.getF4());</span><br><span class="line"></span><br><span class="line"><span class="comment">/*修改后*/</span></span><br><span class="line">GetSet.set(b::setF_1, a::getF1, (<span class="keyword">short</span>) <span class="number">1</span>, Integer::shortValue);</span><br><span class="line">GetSet.set(b::setF2,  a::getF2,      <span class="string">"f2"</span>, StringUtils::isBlank);</span><br><span class="line">GetSet.set(b::setF_3, a::getF3, (<span class="keyword">short</span>) <span class="number">1</span>, Integer::shortValue);</span><br><span class="line">GetSet.set(b::setF4,  a::getF4);</span><br></pre></td></tr></table></figure>
+
+<p>对比之下的话，感觉下面的还是比较给力的。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://lixi.fun/2021/06/11/multi-modules-spring-boot-repackage-issue/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -920,77 +992,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://lixi.fun/2021/04/16/why-redis-so-fast/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/lixifun-logo.png">
-      <meta itemprop="name" content="lixifun">
-      <meta itemprop="description" content="做个有趣的人 | FUN | 自强 笃实 求源 创新">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="LIXI.FUN">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/04/16/why-redis-so-fast/" class="post-title-link" itemprop="url">为什么 Redis 这么快？</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-04-16 20:00:00" itemprop="dateCreated datePublished" datetime="2021-04-16T20:00:00+08:00">2021-04-16</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-30 09:17:50" itemprop="dateModified" datetime="2021-05-30T09:17:50+08:00">2021-05-30</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>如果百度得到的答案，扯到了因为单线程，没有多线程的上下文切换锁之类的所以快的，还有 epoll 之类的，不用看了又是一篇复制粘贴的文章，因为 epoll 首要解决的问题就不是快，具体可以看 <a href="https://lixi.fun/2021/04/16/what-problem-does-IO-multiplexing-solve/">IO 多路复用解决的啥问题</a>，ps: 现在，最新版的 redis (6.x) 开始用多线程来处理 IO 了。</p>
-<p>Redis 快的主要原因：</p>
-<ol>
-<li>纯内存操作</li>
-<li>数据结构简单高效</li>
-</ol>
-<p>benchmark 里的每秒增删改查的数字大，是因为单次操作耗时少，这个叫快，而数据量大，叫多。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1062,12 +1063,12 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">29</span>
+          <span class="site-state-item-count">30</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">46</span>
+        <span class="site-state-item-count">47</span>
         <span class="site-state-item-name">标签</span>
       </div>
   </nav>
