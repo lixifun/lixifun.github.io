@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://lixi.fun/2021/06/17/springboot-aop-jdk-proxy-or-cglib/</loc>
+    <lastmod>2021-06-17</lastmod>
+  </url>
+  <url>
     <loc>https://lixi.fun/2021/06/07/and-instead-of-mod/</loc>
     <lastmod>2021-06-17</lastmod>
   </url>
@@ -101,11 +105,11 @@
     <lastmod>2021-04-15</lastmod>
   </url>
   <url>
-    <loc>https://lixi.fun/2018/10/10/handling-archlinux-error/</loc>
+    <loc>https://lixi.fun/2020/06/04/linux-redirect/</loc>
     <lastmod>2021-04-15</lastmod>
   </url>
   <url>
-    <loc>https://lixi.fun/2020/06/04/linux-redirect/</loc>
+    <loc>https://lixi.fun/2018/10/10/handling-archlinux-error/</loc>
     <lastmod>2021-04-15</lastmod>
   </url>
   <url>
