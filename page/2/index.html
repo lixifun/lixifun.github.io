@@ -175,6 +175,77 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://lixi.fun/2021/05/19/null-hash-code/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/lixifun-logo.png">
+      <meta itemprop="name" content="lixifun">
+      <meta itemprop="description" content="做个有趣的人 | FUN | 自强 笃实 求源 创新">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LIXI.FUN">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/05/19/null-hash-code/" class="post-title-link" itemprop="url">Java 里 null 的 hash code 是多少？</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-05-19 12:31:11 / 修改时间：12:39:53" itemprop="dateCreated datePublished" datetime="2021-05-19T12:31:11+08:00">2021-05-19</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Object o = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Exception in thread "main" java.lang.NullPointerException</span></span><br><span class="line"><span class="comment">// System.out.println(o.hashCode());</span></span><br></pre></td></tr></table></figure>
+
+<p>点进去看 hashCode() 方法的实现</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span>  a hash code value for this object.</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@see</span>     java.lang.Object#equals(java.lang.Object)</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@see</span>     java.lang.System#identityHashCode</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">native</span> <span class="keyword">int</span> <span class="title">hashCode</span><span class="params">()</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>null 也是个对象，是对象就一定有一个 hash code 看 @see 里的 <code>java.lang.System#identityHashCode</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Returns the same hash code for the given object as</span></span><br><span class="line"><span class="comment"> * would be returned by the default method hashCode(),</span></span><br><span class="line"><span class="comment"> * whether or not the given object's class overrides</span></span><br><span class="line"><span class="comment"> * hashCode().</span></span><br><span class="line"><span class="comment"> * The hash code for the null reference is zero.</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> x object for which the hashCode is to be calculated</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span>  the hashCode</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@since</span>   JDK1.1</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">native</span> <span class="keyword">int</span> <span class="title">identityHashCode</span><span class="params">(Object x)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>果然 <strong>The hash code for the null reference is zero</strong>。</p>
+<p>再去看 HashMap 里的 <code>put(null, xxx)</code> 呢？</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 果然 key == null 的时候返回的也是 0</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> <span class="title">hash</span><span class="params">(Object key)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> h;</span><br><span class="line">    <span class="keyword">return</span> (key == <span class="keyword">null</span>) ? <span class="number">0</span> : (h = key.hashCode()) ^ (h &gt;&gt;&gt; <span class="number">16</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>结论：Java 里 null 的 hash code 是 0。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://lixi.fun/2021/04/16/service-down/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -676,80 +747,6 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://lixi.fun/2021/04/10/understanding-of-inheritance-and-implementation-interface-in-java/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/lixifun-logo.png">
-      <meta itemprop="name" content="lixifun">
-      <meta itemprop="description" content="做个有趣的人 | FUN | 自强 笃实 求源 创新">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="LIXI.FUN">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/04/10/understanding-of-inheritance-and-implementation-interface-in-java/" class="post-title-link" itemprop="url">对 Java 中继承和实现接口的理解</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-04-10 12:01:28" itemprop="dateCreated datePublished" datetime="2021-04-10T12:01:28+08:00">2021-04-10</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-04-16 17:16:30" itemprop="dateModified" datetime="2021-04-16T17:16:30+08:00">2021-04-16</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>通常大家比较的都是抽象类和接口的异同，而我这里写的是继承而不是抽象类，是因为我这里的比较对象是 “实现接口” 而不是接口这个概念。</p>
-<p>在我看来，继承和实现接口的主要区别在于：状态。具体点儿就是父类的字段。</p>
-<p>继承有状态的传递，而实现接口没有。</p>
-<p>这里就有些像微服务里的 “无状态” 的说法了。</p>
-<p>所以什么时候用继承呢？</p>
-<ol>
-<li>接口的拓展，接口继承接口，这个是语法限制</li>
-<li>有状态字段，不用继承没法</li>
-</ol>
-<p>其他情况下，慎用继承。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://lixi.fun/2021/04/10/why-32-bit-can-only-manage-4G-memory-at-most/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -811,6 +808,80 @@
 <p>$= 2^{32 – 10 – 10 – 10} GB= 2^2 GB= 4 GB$</p>
 <p>没有上面的解释，理解起来确实没头没脑的。</p>
 <p>这也就解释了，bool 变量明明只要 1 bit 就可以表示了，但在一般编程语言里却需要 1 byte 的存储空间，因为一个内存地址指向的最小寻址单位是 1 byte。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://lixi.fun/2021/04/10/understanding-of-inheritance-and-implementation-interface-in-java/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/lixifun-logo.png">
+      <meta itemprop="name" content="lixifun">
+      <meta itemprop="description" content="做个有趣的人 | FUN | 自强 笃实 求源 创新">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LIXI.FUN">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/04/10/understanding-of-inheritance-and-implementation-interface-in-java/" class="post-title-link" itemprop="url">对 Java 中继承和实现接口的理解</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-04-10 12:01:28" itemprop="dateCreated datePublished" datetime="2021-04-10T12:01:28+08:00">2021-04-10</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-04-16 17:16:30" itemprop="dateModified" datetime="2021-04-16T17:16:30+08:00">2021-04-16</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>通常大家比较的都是抽象类和接口的异同，而我这里写的是继承而不是抽象类，是因为我这里的比较对象是 “实现接口” 而不是接口这个概念。</p>
+<p>在我看来，继承和实现接口的主要区别在于：状态。具体点儿就是父类的字段。</p>
+<p>继承有状态的传递，而实现接口没有。</p>
+<p>这里就有些像微服务里的 “无状态” 的说法了。</p>
+<p>所以什么时候用继承呢？</p>
+<ol>
+<li>接口的拓展，接口继承接口，这个是语法限制</li>
+<li>有状态字段，不用继承没法</li>
+</ol>
+<p>其他情况下，慎用继承。</p>
 
       
     </div>
@@ -896,77 +967,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://lixi.fun/2021/04/07/native2ascii/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/lixifun-logo.png">
-      <meta itemprop="name" content="lixifun">
-      <meta itemprop="description" content="做个有趣的人 | FUN | 自强 笃实 求源 创新">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="LIXI.FUN">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/04/07/native2ascii/" class="post-title-link" itemprop="url">native2ascii</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-04-07 10:21:22" itemprop="dateCreated datePublished" datetime="2021-04-07T10:21:22+08:00">2021-04-07</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-30 09:14:06" itemprop="dateModified" datetime="2021-05-30T09:14:06+08:00">2021-05-30</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>有中文的配置配置文件，如果在 idea 里面没有开启 native2ascii 选项的话，可能就会出现下面的这种情形。</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">\u5c0f\u660e</span></span><br></pre></td></tr></table></figure>
-
-<p>怎么办呢？</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># application.yml 是 input, application.yml.convert 是 output</span></span><br><span class="line"><span class="comment"># .convert 的后缀是我加的，避免转换错误直接覆盖了源文件</span></span><br><span class="line">native2ascii -reverse -encoding UTF-8 application.yml application.yml.convert</span><br></pre></td></tr></table></figure>
-
-<p>application.yml.convert 里的内容就成了</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">小明</span></span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1038,12 +1038,12 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">31</span>
+          <span class="site-state-item-count">32</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">50</span>
+        <span class="site-state-item-count">51</span>
         <span class="site-state-item-name">标签</span>
       </div>
   </nav>
