@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://lixi.fun/tags/index.html</loc>
+    
+    <lastmod>2021-07-14T01:47:54.957Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://lixi.fun/2021/07/11/configuration-and-bean-annotation/</loc>
     
     <lastmod>2021-07-11T07:44:04.283Z</lastmod>
@@ -191,14 +198,14 @@
   </url>
   
   <url>
-    <loc>https://lixi.fun/2018/10/10/handling-archlinux-error/</loc>
+    <loc>https://lixi.fun/2020/06/04/linux-redirect/</loc>
     
     <lastmod>2021-04-15T09:59:49.226Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://lixi.fun/2020/06/04/linux-redirect/</loc>
+    <loc>https://lixi.fun/2018/10/10/handling-archlinux-error/</loc>
     
     <lastmod>2021-04-15T09:59:49.226Z</lastmod>
     
